@@ -265,7 +265,7 @@ export default function Partnership() {
                 </div>
 
                 <button className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold text-xl transition-all flex items-center justify-center gap-4 shadow-2xl shadow-brand/20 active:scale-[0.98]">
-                  Submit Partnership Engagement <Send className="w-6 h-6" />
+                  Submit <Send className="w-6 h-6" />
                 </button>
               </form>
             </div>

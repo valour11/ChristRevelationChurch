@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap } from 'lucide-react';
+import schoolImg from "../assets/bibleSchool.jpeg";
 
 export default function School() {
   return (
@@ -82,6 +83,50 @@ export default function School() {
         </div>
       </section>
 
+        {/* About School of ministry */}
+      <section className="py-8 bg-[#fafafa] relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            {/* <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Pathway</span> */}
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">About School of Ministry</h2>
+            <p className="text-text-muted text-lg font-medium max-w-4xl mx-auto">May the peace of the Lord be with you, beloved in Christ Jesus. You are welcome to <strong className="text-brand">Christ's Revelation School of Ministry</strong>. We are the Discipleship department of Christ's Revelation Int'l Church, the objective of this school of ministry is to raise a generation of men and women who carry an unusual passion for God, people with undivided focus on God and for his purpose in the earth. God gave this mandate to his servant, the apostle over this commission and assured him in his own word "no one who passes through your hands shall be the same". It was back in 2013 when he was alone with the Lord in the wilderness seeking his face to get his mind about his generation, in an encounter, God handed him this vocation and many other things which may be personal, still about his generation.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              { level: "Level 1", title: "Foundations of Faith", modules: ["Biblical Interpretation", "Character Development", "Dynamics of Prayer"] },
+              { level: "Level 2", title: "Ministry Essentials", modules: ["Homiletics & Preaching", "Pastoral Care", "Church Management"] },
+              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Prophetic Ministry"] }
+            ].map((c, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-12 bg-white rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
+              >
+                <div className="flex items-center justify-between mb-8">
+                  <span className="text-brand font-bold text-[10px] uppercase tracking-[0.3em]">{c.level}</span>
+                  <div className="w-8 h-8 rounded-lg bg-brand/5 flex items-center justify-center text-brand">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-display font-bold mb-10 text-black group-hover:text-brand transition-colors">{c.title}</h3>
+                <ul className="space-y-6">
+                  {c.modules.map((m, j) => (
+                    <li key={j} className="flex items-center gap-4 text-text-muted font-medium">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand/40" />
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -126,7 +171,7 @@ export default function School() {
             >
               <div className="relative z-10 rounded-[48px] overflow-hidden shadow-2xl border border-brand/5">
                 <img 
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800" 
+                  src={schoolImg} 
                   alt="Classroom" 
                   className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
@@ -146,7 +191,7 @@ export default function School() {
       </section>
 
       {/* Curriculum */}
-      <section className="py-32 bg-[#fafafa] relative overflow-hidden">
+      <section className="py-10 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Pathway</span>
