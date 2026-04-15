@@ -1,101 +1,165 @@
 import { motion } from 'motion/react';
-import { MessageSquare, Send, ShieldCheck, Heart } from 'lucide-react';
+import { MessageSquare, Send, ShieldCheck, Heart, Sparkles } from 'lucide-react';
 
 export default function PrayerRequest() {
   return (
-    <div className="pt-20">
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto flex flex-col lg:flex-row gap-16">
-            <div className="lg:w-1/2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20">
-                  <MessageSquare className="w-8 h-8 text-white" />
-                </div>
-                <h1 className="text-4xl font-bold text-slate-900 mb-6">How Can We Pray For You?</h1>
-                <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-                  Our dedicated prayer team is ready to stand in intercession with you. Your requests are handled with the utmost care and confidentiality.
-                </p>
+    <div className="flex flex-col w-full bg-[#fdfdfd]">
+      {/* Hero / Header */}
+      <section className="relative pt-32 pb-24 bg-black text-white overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-30">
+          <img 
+            src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&q=80&w=2000" 
+            alt="Prayer Background" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm shadow-glow"
+          >
+            <Heart className="w-3 h-3 text-brand" />
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Intercession</span>
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+          >
+            How Can We <span className="text-brand">Pray</span> For You?
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-white/50 max-w-2xl mx-auto font-medium leading-relaxed"
+          >
+            Our dedicated prayer team is ready to stand in faith with you. Your requests are handled with divine care and absolute confidentiality.
+          </motion.p>
+        </div>
+      </section>
 
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                      <ShieldCheck className="w-5 h-5 text-blue-600" />
+      <section className="py-24 relative -mt-16 z-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            {/* Left side: Information */}
+            <div className="lg:w-2/5">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-12"
+              >
+                <div>
+                  <h2 className="text-3xl font-display font-bold text-black mb-6 leading-tight">We Believe in the <br /><span className="text-brand underline decoration-brand/20 underline-offset-8 italic">Power of Prayer</span></h2>
+                  <p className="text-text-muted text-lg font-medium leading-relaxed">
+                    "Therefore I tell you, whatever you ask for in prayer, believe that you have received it, and it will be yours." — Mark 11:24
+                  </p>
+                </div>
+
+                <div className="space-y-8">
+                  <div className="flex gap-6 group">
+                    <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center shrink-0 text-brand group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900">Confidentiality</h4>
-                      <p className="text-slate-500">Your request is only shared with our intercessors.</p>
+                      <h4 className="text-xl font-display font-bold text-black mb-2 group-hover:text-brand transition-colors">Total Confidentiality</h4>
+                      <p className="text-text-muted font-medium leading-relaxed">Your requests are sacred and only shared with our trusted intercessory team.</p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                      <Heart className="w-5 h-5 text-blue-600" />
+                  
+                  <div className="flex gap-6 group">
+                    <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center shrink-0 text-brand group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <Heart className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900">Dedicated Support</h4>
-                      <p className="text-slate-500">We pray over every single request we receive.</p>
+                      <h4 className="text-xl font-display font-bold text-black mb-2 group-hover:text-brand transition-colors">Strategic Intercession</h4>
+                      <p className="text-text-muted font-medium leading-relaxed">We don't just read requests; we wage spiritual warfare for your breakthrough.</p>
                     </div>
+                  </div>
+                </div>
+
+                <div className="p-10 bg-black rounded-[40px] text-white relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand/20 blur-3xl rounded-full" />
+                  <div className="relative z-10">
+                    <h5 className="text-xl font-display font-bold mb-4 flex items-center gap-3">
+                      Need Urgent Prayer? <Sparkles className="w-4 h-4 text-brand" />
+                    </h5>
+                    <p className="text-white/50 text-sm font-medium leading-relaxed mb-6">If you are facing an emergency, you can also reach our 24/7 prayer line directly.</p>
+                    <span className="text-2xl font-display font-bold text-brand">+237 000 000 000</span>
                   </div>
                 </div>
               </motion.div>
             </div>
 
+            {/* Right side: Form */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="lg:w-1/2 bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="lg:w-3/5 w-full bg-white p-12 md:p-16 rounded-[48px] card-shadow border border-brand/5 relative"
             >
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">First Name</label>
+              <form className="space-y-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">First Name</label>
                     <input 
                       type="text" 
                       placeholder="John"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                      className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Last Name</label>
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Last Name</label>
                     <input 
                       type="text" 
                       placeholder="Doe"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                      className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40"
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Email Address</label>
+                
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Email Address</label>
                   <input 
                     type="email" 
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Prayer Category</label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all appearance-none bg-white">
-                    <option>Healing</option>
-                    <option>Finances</option>
-                    <option>Family</option>
-                    <option>Spiritual Growth</option>
-                    <option>Other</option>
-                  </select>
+
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Prayer Category</label>
+                  <div className="relative">
+                    <select className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black appearance-none cursor-pointer">
+                      <option>Healing & Health</option>
+                      <option>Financial Breakthrough</option>
+                      <option>Family & Relationships</option>
+                      <option>Spiritual Growth</option>
+                      <option>Business & Career</option>
+                      <option>Other</option>
+                    </select>
+                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Your Request</label>
+
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Your Request</label>
                   <textarea 
-                    rows={5}
-                    placeholder="Tell us how we can pray for you..."
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all resize-none"
+                    rows={6}
+                    placeholder="Describe your situation and how we can pray for you..."
+                    className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 resize-none"
                   ></textarea>
                 </div>
-                <button className="w-full py-4 bg-blue-600 text-white rounded-md font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2">
-                  Submit Prayer Request <Send className="w-4 h-4" />
+
+                <button className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-brand/30 flex items-center justify-center gap-3 group active:scale-[0.98]">
+                  Submit Prayer Request <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
               </form>
             </motion.div>

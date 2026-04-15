@@ -37,7 +37,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col font-sans selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen flex flex-col font-sans selection:bg-brand/20 selection:text-brand-dark">
         <ScrollToTop />
         <Navbar />
         <main className="flex-grow">
