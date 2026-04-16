@@ -1,7 +1,48 @@
-import { motion } from 'motion/react';
-import { MessageSquare, Send, ShieldCheck, Heart, Sparkles } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle } from 'lucide-react';
 
 export default function PrayerRequest() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    category: 'Healing & Health',
+    request: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate API Call
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Prayer Request Submitted:', formData);
+      setIsSuccess(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        category: 'Healing & Health',
+        request: ''
+      });
+    } catch (error) {
+      console.error('Submission failed:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
       {/* Hero / Header */}
@@ -87,10 +128,10 @@ export default function PrayerRequest() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand/20 blur-3xl rounded-full" />
                   <div className="relative z-10">
                     <h5 className="text-xl font-display font-bold mb-4 flex items-center gap-3">
-                      Need Urgent Prayer? <Sparkles className="w-4 h-4 text-brand" />
+                      Need One on One Prayer? <Sparkles className="w-4 h-4 text-brand" />
                     </h5>
-                    <p className="text-white/50 text-sm font-medium leading-relaxed mb-6">If you are facing an emergency, you can also reach our 24/7 prayer line directly.</p>
-                    <span className="text-2xl font-display font-bold text-brand">+237 000 000 000</span>
+                    <p className="text-white/50 text-sm font-medium leading-relaxed mb-6">Need One on One Prayer? Call us directly.</p>
+                    <span className="text-2xl font-display font-bold text-brand">+237 6 73 58 74 63</span>
                   </div>
                 </div>
               </motion.div>
@@ -103,65 +144,131 @@ export default function PrayerRequest() {
               viewport={{ once: true }}
               className="lg:w-3/5 w-full bg-white p-12 md:p-16 rounded-[48px] card-shadow border border-brand/5 relative"
             >
-              <form className="space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">First Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="John"
-                      className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Last Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Doe"
-                      className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40"
-                    />
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Email Address</label>
-                  <input 
-                    type="email" 
-                    placeholder="john@example.com"
-                    className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40"
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Prayer Category</label>
-                  <div className="relative">
-                    <select className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black appearance-none cursor-pointer">
-                      <option>Healing & Health</option>
-                      <option>Financial Breakthrough</option>
-                      <option>Family & Relationships</option>
-                      <option>Spiritual Growth</option>
-                      <option>Business & Career</option>
-                      <option>Other</option>
-                    </select>
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              <AnimatePresence mode="wait">
+                {!isSuccess ? (
+                  <motion.form 
+                    key="form"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    ref={formRef}
+                    onSubmit={handleSubmit}
+                    className="space-y-8"
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">First Name</label>
+                        <input 
+                          type="text" 
+                          name="firstName"
+                          required
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          placeholder="John"
+                          className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 disabled:opacity-50"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Last Name</label>
+                        <input 
+                          type="text" 
+                          name="lastName"
+                          required
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          placeholder="Doe"
+                          className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 disabled:opacity-50"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </div>
+                    
+                    <div className="space-y-3">
+                      <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Email Address</label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        disabled={isSubmitting}
+                        placeholder="john@example.com"
+                        className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 disabled:opacity-50"
+                      />
+                    </div>
 
-                <div className="space-y-3">
-                  <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Your Request</label>
-                  <textarea 
-                    rows={6}
-                    placeholder="Describe your situation and how we can pray for you..."
-                    className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 resize-none"
-                  ></textarea>
-                </div>
+                    <div className="space-y-3">
+                      <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Prayer Category</label>
+                      <div className="relative">
+                        <select 
+                          name="category"
+                          value={formData.category}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black appearance-none cursor-pointer disabled:opacity-50"
+                        >
+                          <option>Healing & Health</option>
+                          <option>Financial Breakthrough</option>
+                          <option>Family & Relationships</option>
+                          <option>Spiritual Growth</option>
+                          <option>Business & Career</option>
+                          <option>Other</option>
+                        </select>
+                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                      </div>
+                    </div>
 
-                <button className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-brand/30 flex items-center justify-center gap-3 group active:scale-[0.98]">
-                  Submit Prayer Request <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
-              </form>
+                    <div className="space-y-3">
+                      <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Your Request</label>
+                      <textarea 
+                        name="request"
+                        required
+                        value={formData.request}
+                        onChange={handleChange}
+                        disabled={isSubmitting}
+                        rows={6}
+                        placeholder="Describe your situation and how we can pray for you..."
+                        className="w-full px-6 py-5 rounded-2xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 resize-none disabled:opacity-50"
+                      ></textarea>
+                    </div>
+
+                    <button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-brand/30 flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>Processing... <Loader2 className="w-5 h-5 animate-spin" /></>
+                      ) : (
+                        <>Submit Prayer Request <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+                      )}
+                    </button>
+                  </motion.form>
+                ) : (
+                  <motion.div 
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-12 text-center space-y-8"
+                  >
+                    <div className="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle className="w-10 h-10 text-brand" />
+                    </div>
+                    <h3 className="text-3xl font-display font-bold text-black">Request Received</h3>
+                    <p className="text-text-muted text-lg font-medium max-w-sm mx-auto leading-relaxed">
+                      Your prayer request has been submitted. Our team will stand in faith with you.
+                    </p>
+                    <button 
+                      onClick={() => setIsSuccess(false)}
+                      className="text-brand font-bold hover:underline"
+                    >
+                      Submit another request
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </div>

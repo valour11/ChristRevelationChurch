@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Handshake, Globe, Users, Heart, ShieldCheck, MessageSquare, PhoneCall, Camera, Send, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Handshake, Globe, Users, Heart, ShieldCheck, MessageSquare, PhoneCall, Camera, Send, Sparkles, CheckCircle2, Loader2, CheckCircle } from 'lucide-react';
 
 const cameroonLevels = [
   { name: "SILVER", range: "5,000 to 20,000 fcfa", registration: "5,000 fcfa" },
@@ -16,6 +16,72 @@ const internationalLevels = [
 
 export default function Partnership() {
   const [region, setRegion] = useState<'Cameroon' | 'International'>('International');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    countryOfOrigin: '',
+    countryOfResidence: '',
+    townOrRegion: '',
+    contactNumber: '',
+    occupation: '',
+    monthlyPledge: '',
+    prayerPoint1: '',
+    prayerPoint2: '',
+    picture: null as File | null
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData(prev => ({ ...prev, picture: e.target.files![0] }));
+    }
+  };
+
+  const handleLevelSelect = (range: string) => {
+    const amount = range.split(' to ')[0] || range;
+    setFormData(prev => ({ ...prev, monthlyPledge: amount }));
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API Call
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Form Submitted:', formData);
+      setIsSuccess(true);
+      // Reset form after success
+      setFormData({
+        fullName: '',
+        email: '',
+        countryOfOrigin: '',
+        countryOfResidence: '',
+        townOrRegion: '',
+        contactNumber: '',
+        occupation: '',
+        monthlyPledge: '',
+        prayerPoint1: '',
+        prayerPoint2: '',
+        picture: null
+      });
+    } catch (error) {
+      console.error('Submission failed:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
@@ -182,7 +248,10 @@ export default function Partnership() {
                   </div>
                 </div>
 
-                <button className={`w-full py-5 rounded-2xl font-bold transition-all active:scale-95 ${i === 1 ? 'bg-brand text-white shadow-xl shadow-brand/20 hover:bg-brand-dark' : 'bg-black text-white hover:bg-brand'}`}>
+                <button 
+                  onClick={() => handleLevelSelect(tier.range)}
+                  className={`w-full py-5 rounded-2xl font-bold transition-all active:scale-95 ${i === 1 ? 'bg-brand text-white shadow-xl shadow-brand/20 hover:bg-brand-dark' : 'bg-black text-white hover:bg-brand'}`}
+                >
                   Select Level
                 </button>
               </motion.div>
@@ -207,67 +276,204 @@ export default function Partnership() {
                 <p className="text-white/40 text-lg font-medium max-w-2xl">Please fill out your personal information to formalize your partnership covenant.</p>
               </div>
 
-              <form className="p-12 md:p-16 space-y-12 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Full Names</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="Enter your full name" />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Email Address</label>
-                    <input type="email" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="email@example.com" />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Country of Origin</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="Your home country" />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Country of Residence</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="Where you live now" />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Town or Region</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="City / State" />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Contact Number(s)</label>
-                    <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="+123..." />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Occupation</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="Your profession" />
-                  </div>
-                  <div className="space-y-4">
-                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Monthly Pledge ({region === 'Cameroon' ? 'fcfa' : 'USD $'})</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium" placeholder="Amount" />
-                  </div>
-                </div>
+              <AnimatePresence mode="wait">
+                {!isSuccess ? (
+                  <motion.form 
+                    key="form"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    ref={formRef}
+                    onSubmit={handleSubmit} 
+                    className="p-12 md:p-16 space-y-12 relative z-10"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Full Names</label>
+                        <input 
+                          type="text" 
+                          name="fullName"
+                          required
+                          value={formData.fullName}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="Enter your full name" 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Email Address</label>
+                        <input 
+                          type="email" 
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="email@example.com" 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Country of Origin</label>
+                        <input 
+                          type="text" 
+                          name="countryOfOrigin"
+                          value={formData.countryOfOrigin}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="Your home country" 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Country of Residence</label>
+                        <input 
+                          type="text" 
+                          name="countryOfResidence"
+                          value={formData.countryOfResidence}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="Where you live now" 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Town or Region</label>
+                        <input 
+                          type="text" 
+                          name="townOrRegion"
+                          value={formData.townOrRegion}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="City / State" 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Contact Number(s)</label>
+                        <input 
+                          type="tel" 
+                          name="contactNumber"
+                          required
+                          value={formData.contactNumber}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="+123..." 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Occupation</label>
+                        <input 
+                          type="text" 
+                          name="occupation"
+                          value={formData.occupation}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="Your profession" 
+                        />
+                      </div>
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Monthly Pledge ({region === 'Cameroon' ? 'fcfa' : 'USD $'})</label>
+                        <input 
+                          type="text" 
+                          name="monthlyPledge"
+                          required
+                          value={formData.monthlyPledge}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full bg-white/5 border border-white/10 rounded-[20px] px-6 py-5 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium disabled:opacity-50" 
+                          placeholder="Amount" 
+                        />
+                      </div>
+                    </div>
 
-                <div className="space-y-8 pt-12 border-t border-white/5">
-                  <div className="flex items-center gap-3">
-                    <ShieldCheck className="w-6 h-6 text-brand" />
-                    <h4 className="text-2xl font-display font-bold text-white">Prayer Points Covenant</h4>
-                  </div>
-                  <p className="text-white/40 text-lg leading-relaxed font-medium italic">Write two very pertinent prayer points that you want GOD to do for you based on the covenant of this partnership engagement. Apostle Godwin Bantar and the Intercessors will always pray over them.</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-[24px] px-6 py-6 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium resize-none shadow-inner" placeholder="Prayer Point 1"></textarea>
-                    <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-[24px] px-6 py-6 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium resize-none shadow-inner" placeholder="Prayer Point 2"></textarea>
-                  </div>
-                </div>
+                    <div className="space-y-8 pt-12 border-t border-white/5">
+                      <div className="flex items-center gap-3">
+                        <ShieldCheck className="w-6 h-6 text-brand" />
+                        <h4 className="text-2xl font-display font-bold text-white">Prayer Points Covenant</h4>
+                      </div>
+                      <p className="text-white/40 text-lg leading-relaxed font-medium italic">Write two very pertinent prayer points that you want GOD to do for you based on the covenant of this partnership engagement. Apostle Godwin Bantar and the Intercessors will always pray over them.</p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <textarea 
+                          name="prayerPoint1"
+                          required
+                          value={formData.prayerPoint1}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          rows={4} 
+                          className="w-full bg-white/5 border border-white/10 rounded-[24px] px-6 py-6 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium resize-none shadow-inner disabled:opacity-50" 
+                          placeholder="Prayer Point 1"
+                        ></textarea>
+                        <textarea 
+                          name="prayerPoint2"
+                          required
+                          value={formData.prayerPoint2}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          rows={4} 
+                          className="w-full bg-white/5 border border-white/10 rounded-[24px] px-6 py-6 text-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all placeholder:text-white/20 font-medium resize-none shadow-inner disabled:opacity-50" 
+                          placeholder="Prayer Point 2"
+                        ></textarea>
+                      </div>
+                    </div>
 
-                <div className="space-y-6">
-                  <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Picture for Intercession</label>
-                  <div className="border-2 border-dashed border-white/10 rounded-[32px] p-12 text-center hover:border-brand hover:bg-brand/5 transition-all cursor-pointer group">
-                    <Camera className="w-12 h-12 text-white/20 mx-auto mb-4 group-hover:text-brand transition-all group-hover:scale-110" />
-                    <p className="text-white/40 font-medium">Click or drag to upload your picture for the place of prayer</p>
-                    <input type="file" className="hidden" />
-                  </div>
-                </div>
+                    <div className="space-y-6">
+                      <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Picture for Intercession</label>
+                      <div 
+                        onClick={() => fileInputRef.current?.click()}
+                        className={`border-2 border-dashed rounded-[32px] p-12 text-center transition-all cursor-pointer group ${formData.picture ? 'border-brand bg-brand/5' : 'border-white/10 hover:border-brand hover:bg-brand/5'}`}
+                      >
+                        <Camera className={`w-12 h-12 mx-auto mb-4 transition-all group-hover:scale-110 ${formData.picture ? 'text-brand' : 'text-white/20 group-hover:text-brand'}`} />
+                        <p className="text-white/40 font-medium">
+                          {formData.picture ? `Selected: ${formData.picture.name}` : 'Click or drag to upload your picture for the place of prayer'}
+                        </p>
+                        <input 
+                          type="file" 
+                          ref={fileInputRef}
+                          onChange={handleFileChange}
+                          className="hidden" 
+                          accept="image/*"
+                        />
+                      </div>
+                    </div>
 
-                <button className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold text-xl transition-all flex items-center justify-center gap-4 shadow-2xl shadow-brand/20 active:scale-[0.98]">
-                  Submit <Send className="w-6 h-6" />
-                </button>
-              </form>
+                    <button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold text-xl transition-all flex items-center justify-center gap-4 shadow-2xl shadow-brand/20 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>Processing... <Loader2 className="w-6 h-6 animate-spin" /></>
+                      ) : (
+                        <>Submit <Send className="w-6 h-6" /></>
+                      )}
+                    </button>
+                  </motion.form>
+                ) : (
+                  <motion.div 
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="p-12 md:p-24 text-center space-y-8 relative z-10"
+                  >
+                    <div className="w-24 h-24 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-8">
+                      <CheckCircle className="w-12 h-12 text-brand" />
+                    </div>
+                    <h3 className="text-4xl md:text-5xl font-display font-bold text-white">Covenant Formalized!</h3>
+                    <p className="text-white/60 text-xl max-w-2xl mx-auto leading-relaxed">
+                      Thank you for partnering with us. Your registration has been received, and our intercessors are already standing in gap for your prayer points.
+                    </p>
+                    <button 
+                      onClick={() => setIsSuccess(false)}
+                      className="px-12 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold transition-all"
+                    >
+                      Register Another Partner
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Users, Target, Heart, Shield, Star, Sparkles } from 'lucide-react';
-import bantar from "../assets/bantar.png";
+import bantar from "../assets/bantar.jpg";
 
 export default function About() {
   return (

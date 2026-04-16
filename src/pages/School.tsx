@@ -1,8 +1,58 @@
-import { motion } from 'motion/react';
-import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
 import schoolImg from "../assets/bibleSchool.jpeg";
 
 export default function School() {
+  const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    level: 'Level 1',
+    reason: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate API Call
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Enrollment Submitted:', formData);
+      setIsSuccess(true);
+      // Don't reset immediately so user sees success
+    } catch (error) {
+      console.error('Enrollment failed:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeModal = () => {
+    setIsEnrollModalOpen(false);
+    // Reset state after animation
+    setTimeout(() => {
+      setIsSuccess(false);
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        level: 'Level 1',
+        reason: ''
+      });
+    }, 300);
+  };
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
       {/* Hero */}
@@ -49,6 +99,7 @@ export default function School() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
+              onClick={() => setIsEnrollModalOpen(true)}
               className="px-10 py-5 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center gap-3"
             >
               Enroll Now <Sparkles className="w-4 h-4" />
@@ -233,6 +284,146 @@ export default function School() {
           </div>
         </div>
       </section>
+      {/* Enrollment Modal */}
+      <AnimatePresence>
+        {isEnrollModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeModal}
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-2xl bg-white rounded-[40px] overflow-hidden shadow-2xl"
+            >
+              <button 
+                onClick={closeModal}
+                className="absolute top-8 right-8 p-2 rounded-full bg-black/5 hover:bg-black/10 transition-colors z-10"
+              >
+                <X className="w-5 h-5 text-black" />
+              </button>
+
+              {!isSuccess ? (
+                <div className="p-12 md:p-16">
+                  <div className="flex items-center gap-3 mb-4">
+                    <GraduationCap className="w-6 h-6 text-brand" />
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Enrollment Form</span>
+                  </div>
+                  <h3 className="text-3xl font-display font-bold text-black mb-10 leading-tight">Join the Leadership <span className="text-brand">School</span></h3>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-black uppercase tracking-widest ml-1">Full Names</label>
+                        <input 
+                          type="text" 
+                          name="fullName"
+                          required
+                          value={formData.fullName}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black disabled:opacity-50"
+                          placeholder="Your full name"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-black uppercase tracking-widest ml-1">Email Address</label>
+                        <input 
+                          type="email" 
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black disabled:opacity-50"
+                          placeholder="email@example.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-black uppercase tracking-widest ml-1">Phone Number</label>
+                        <input 
+                          type="tel" 
+                          name="phone"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black disabled:opacity-50"
+                          placeholder="+237..."
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-black uppercase tracking-widest ml-1">Enrollment Level</label>
+                        <select 
+                          name="level"
+                          value={formData.level}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black appearance-none cursor-pointer disabled:opacity-50"
+                        >
+                          <option>Level 1 - Foundations</option>
+                          <option>Level 2 - Essentials</option>
+                          <option>Level 3 - Advanced</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-black uppercase tracking-widest ml-1">Reason for Joining</label>
+                      <textarea 
+                        name="reason"
+                        value={formData.reason}
+                        onChange={handleChange}
+                        disabled={isSubmitting}
+                        rows={4}
+                        className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black placeholder:text-text-muted/40 resize-none disabled:opacity-50"
+                        placeholder="Tell us briefly about your motivation..."
+                      ></textarea>
+                    </div>
+
+                    <button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-5 bg-brand hover:bg-brand-dark text-white rounded-xl font-bold transition-all shadow-xl shadow-brand/20 active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-70"
+                    >
+                      {isSubmitting ? (
+                        <>Processing... <Loader2 className="w-5 h-5 animate-spin" /></>
+                      ) : (
+                        <>Submit Application <Send className="w-5 h-5" /></>
+                      )}
+                    </button>
+                  </form>
+                </div>
+              ) : (
+                <div className="p-16 md:p-24 text-center">
+                  <div className="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <CheckCircle className="w-10 h-10 text-brand" />
+                  </div>
+                  <h3 className="text-3xl font-display font-bold text-black mb-4">Application Received!</h3>
+                  <p className="text-text-muted text-lg font-medium max-w-sm mx-auto leading-relaxed mb-10">
+                    Thank you for applying to the Christ's Revelation School of Ministry. We will review your application and contact you soon.
+                  </p>
+                  <button 
+                    onClick={closeModal}
+                    className="px-12 py-4 bg-black text-white rounded-xl font-bold hover:bg-brand transition-all active:scale-95"
+                  >
+                    Close
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -12,7 +12,7 @@ import {
   Facebook,
   Youtube
 } from 'lucide-react';
-import bantar from "../assets/bantar.png";
+import bantar from "../assets/bantar.jpg";
 
 const programs = [
   {
@@ -91,14 +91,14 @@ export default function Home() {
           <div className="max-w-4xl">
             {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 20 }}
               transition={{ duration: 0.8 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
             >
               <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
               <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Spiritual Excellence & Leadership</span>
             </motion.div> */}
-            
+             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
