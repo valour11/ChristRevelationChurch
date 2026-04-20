@@ -68,14 +68,14 @@ export default function School() {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mt-10">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
             >
               <GraduationCap className="w-3 h-3 text-brand" />
-              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Ministry Academy</span>
+              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">School Of Ministry</span>
             </motion.div>
             
             <motion.h1 
@@ -83,7 +83,7 @@ export default function School() {
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight tracking-tight"
             >
-              Leadership <span className="text-brand">School</span>
+              Christ Revelation <br /><span className="text-brand">School Of Ministry(CRISOM)</span>
             </motion.h1>
             
             <motion.p 
@@ -191,7 +191,7 @@ export default function School() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Education</span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-10 text-black leading-tight">Why Join Our <br />Leadership School?</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-10 text-black leading-tight">Why Join <br />Our School Of Ministry?</h2>
               
               <div className="space-y-8">
                 {[

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Users, Target, Heart, Shield, Star, Sparkles } from 'lucide-react';
-import bantar from "../assets/bantar.jpg";
+import bantar from "../assets/bantar2.jpeg";
 
 export default function About() {
   return (
@@ -61,7 +61,7 @@ export default function About() {
               className="lg:w-1/2 lg:sticky lg:top-32"
             >
               <div className="relative">
-                <div className="relative z-10 rounded-[48px] overflow-hidden shadow-2xl shadow-brand/10 border border-brand/5">
+                <div className="relative z-10 rounded-[48px] overflow-hidden shadow-2xl shadow-brand/10 border border-brand/5 w-[600px] h-[600px]">
                   <img 
                     src={bantar} 
                     alt="Apostle Godwin BANTAR" 
@@ -88,7 +88,7 @@ export default function About() {
                 </h2>
                 <div className="space-y-6 text-text-muted text-lg leading-relaxed font-medium">
                   <p>
-                    Apostle Godwin BANTAR is a visionary leader, prophetic voice, and dedicated servant of God. With a ministry spanning over two decades, he has been at the forefront of spiritual awakening and leadership transformation in Africa and beyond.
+                    Apostle Godwin BANTAR is a visionary leader, apostolic voice, and dedicated servant of God. With a ministry spanning over two decades, he has been at the forefront of spiritual awakening and leadership transformation in Africa and beyond.
                   </p>
                   <p>
                     His journey began with a profound calling to equip the body of Christ with biblical truth and spiritual excellence. This calling led to the establishment of the Apostle Godwin BANTAR Ministry, which has grown into a global community of believers.
@@ -110,7 +110,7 @@ export default function About() {
                     Through various programs like the Leadership School and Prayer Ministry, Apostle Bantar has mentored thousands of leaders, helping them discover their spiritual gifts and effectively serve their communities.
                   </p>
                   <p>
-                    The ministry's focus on community development and spiritual excellence has resulted in numerous testimonies of transformed lives, restored families, and empowered leaders who are making a significant impact in their respective spheres of influence.
+                    The ministry focuses on global revival, spiritual excellence and community developpement.
                   </p>
                 </div>
               </div>

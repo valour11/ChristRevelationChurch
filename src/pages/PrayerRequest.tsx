@@ -1,11 +1,33 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle } from 'lucide-react';
+import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import prayer1 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.39 PM.jpeg';
+import prayer2 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.41 PM.jpeg';
+import prayer3 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.49 PM.jpeg';
+import prayer4 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.55 PM.jpeg';
+import prayer5 from '../assets/prayer-img/file_0000000059887243884af6450dd8a8a6.png';
+import prayer6 from '../assets/prayer-img/prayer.jpeg';
+
+const prayerImages = [prayer1, prayer2, prayer3, prayer4, prayer5, prayer6];
 
 export default function PrayerRequest() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % prayerImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + prayerImages.length) % prayerImages.length);
+  };
+
+  React.useEffect(() => {
+    const timer = setInterval(nextImage, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -83,6 +105,50 @@ export default function PrayerRequest() {
           </motion.p>
         </div>
       </section>
+      {/* image slider */}
+      <section className="h-[40vh]">
+         <div className="relative group overflow-hidden rounded-[24px] aspect-[4/3] bg-black/5 border border-brand/10 shadow-2xl">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImageIndex}
+                      src={prayerImages[currentImageIndex]}
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.8, ease: "anticipate" }}
+                      className="w-full h-full object-cover"
+                    />
+                  </AnimatePresence>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {prayerImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                          currentImageIndex === index ? 'bg-brand w-6' : 'bg-white/40 hover:bg-white/60'
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  <button 
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-brand hover:border-brand"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+
+                  <button 
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-brand hover:border-brand"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
+      </section>
 
       <section className="py-24 relative -mt-16 z-20">
         <div className="container mx-auto px-6">
@@ -95,6 +161,7 @@ export default function PrayerRequest() {
                 viewport={{ once: true }}
                 className="space-y-12"
               >
+               
                 <div>
                   <h2 className="text-3xl font-display font-bold text-black mb-6 leading-tight">We Believe in the <br /><span className="text-brand underline decoration-brand/20 underline-offset-8 italic">Power of Prayer</span></h2>
                   <p className="text-text-muted text-lg font-medium leading-relaxed">
