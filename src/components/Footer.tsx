@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../assets/logo.jpeg';
 
 export default function Footer() {
   return (
@@ -9,8 +10,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-8">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-brand rounded-2xl flex items-center justify-center shadow-lg shadow-brand/20">
-                <span className="text-white font-display font-bold text-2xl">B</span>
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-brand/20 overflow-hidden p-0.5">
+                <img src={logo} alt="Bantar Ministries Logo" className="w-full h-full object-cover rounded-xl" />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-2xl text-white leading-tight tracking-tight">

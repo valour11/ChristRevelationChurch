@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronRight } from 'lucide-react';
+import logo from '../assets/logo.jpeg';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -37,8 +38,8 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 bg-brand rounded-xl flex items-center justify-center shadow-lg shadow-brand/20 group-hover:scale-105 transition-transform">
-            <span className="text-white font-display font-bold text-2xl">B</span>
+          <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-brand/20 group-hover:scale-105 transition-transform overflow-hidden p-0.5">
+            <img src={logo} alt="Bantar Ministries Logo" className="w-full h-full object-cover rounded-lg" />
           </div>
           <div className="flex flex-col">
             <span className={`font-display font-bold text-xl leading-tight tracking-tight ${scrolled ? 'text-black' : 'text-white'}`}>
