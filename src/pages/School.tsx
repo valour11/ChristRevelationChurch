@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 import schoolImg from "../assets/bibleSchool.jpeg";
 
 export default function School() {
@@ -55,6 +56,10 @@ export default function School() {
   };
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="Leadership School (CRISOM)" 
+        description="Enroll in the Christ Revelation School of Ministry (CRISOM). Equip yourself with transformative leadership skills and spiritual depth."
+      />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">

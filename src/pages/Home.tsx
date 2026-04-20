@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   BookOpen, 
   MessageSquare, 
@@ -75,6 +76,10 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="Apostle Godwin Bantar Ministries" 
+        description="Experience transformative faith and leadership with Apostle Godwin Bantar. Empowering lives through intentional community and spiritual excellence."
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">

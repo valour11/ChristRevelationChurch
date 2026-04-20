@@ -1,10 +1,15 @@
 import { motion } from 'motion/react';
 import { Users, Target, Heart, Shield, Star, Sparkles } from 'lucide-react';
+import SEO from '../components/SEO';
 import bantar from "../assets/bantar2.jpeg";
 
 export default function About() {
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="About Apostle Godwin Bantar" 
+        description="Learn about the life, vision, and ministry of Apostle Godwin Bantar. A journey of faith, leadership, and divine calling."
+      />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">
