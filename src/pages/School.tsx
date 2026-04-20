@@ -83,7 +83,7 @@ export default function School() {
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight tracking-tight"
             >
-              Christ Revelation <br /><span className="text-brand">School Of Ministry(CRISOM)</span>
+              Christ Revelation <br /><span className="text-brand">School Of Ministry</span><span>(CRISOM)</span>
             </motion.h1>
             
             <motion.p 
