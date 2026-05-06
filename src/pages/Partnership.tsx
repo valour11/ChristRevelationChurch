@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import SEO from '../components/SEO';
 import { Handshake, Globe, Users, Heart, ShieldCheck, MessageSquare, PhoneCall, Camera, Send, Sparkles, CheckCircle2, Loader2, CheckCircle } from 'lucide-react';
 
 const cameroonLevels = [
@@ -85,6 +86,10 @@ export default function Partnership() {
 
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="Kingdom Partnership" 
+        description="Partner with Apostle Godwin Bantar Ministries. Support our mission to spread God's word and impact lives globally through your generosity."
+      />
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0 text-white">

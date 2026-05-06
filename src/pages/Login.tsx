@@ -1,10 +1,15 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { Mail, Lock, ArrowRight, Github, Sparkles } from 'lucide-react';
 
 export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#fdfdfd] py-20 px-6 relative overflow-hidden">
+      <SEO 
+        title="Portal Login" 
+        description="Sign in to your Bantar Ministry portal to access exclusive spiritual resources and school of ministry materials."
+      />
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand/5 blur-[120px] rounded-full" />

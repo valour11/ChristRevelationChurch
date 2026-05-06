@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import SEO from '../components/SEO';
 import { Mail, Phone, MapPin, Send, Facebook, Twitter, Instagram, Youtube, Sparkles, Loader2, CheckCircle } from 'lucide-react';
 
 export default function Contact() {
@@ -43,6 +44,10 @@ export default function Contact() {
   };
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Apostle Godwin Bantar Ministries. Whether you have a question, a testimony, or a prayer request, we are here for you."
+      />
       {/* Hero Header */}
       <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />

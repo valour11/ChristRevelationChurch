@@ -13,7 +13,7 @@ import {
   Facebook,
   Youtube
 } from 'lucide-react';
-import bantar from "../assets/bantar.jpg";
+import bantar from "..//assets/bantar.jpg";
 
 const programs = [
   {
@@ -92,8 +92,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col justify-center items-center">
+          <div className="max-w-4xl flex justify-center items-center flex-col">
             {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 20 }}
@@ -108,7 +108,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-[1.05] tracking-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-[1.05] tracking-tight text-center"
             >
               Apostle Godwin <br />
               <span className="text-brand">BANTAR</span> Ministry
@@ -118,7 +118,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl leading-relaxed font-medium"
+              className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl leading-relaxed font-medium text-center"
             >
               Empowering lives through faith, spiritual growth, and transformative leadership education. Join thousands of believers on their journey to spiritual excellence.
             </motion.p>
@@ -131,7 +131,7 @@ export default function Home() {
             >
               <Link 
                 to="/partnership" 
-                className="group px-10 py-5 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95"
+                className="group px-6 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95"
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -150,7 +150,7 @@ export default function Home() {
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-30"
+          className="absolute bottom-[-45px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-30"
         >
           <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll</span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-brand to-transparent" />
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-32 relative overflow-hidden">
+      <section id="programs" className="py-20 md:px-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
         
         <div className="container mx-auto px-6 relative z-10">
@@ -191,14 +191,14 @@ export default function Home() {
                 <p className="text-text-muted mb-10 leading-relaxed font-medium">
                   {program.description}
                 </p>
-                <div className="mt-auto">
+                {/* <div className="mt-auto">
                   <Link 
                     to={program.link} 
                     className="inline-flex items-center gap-2 text-brand font-bold py-2 border-b-2 border-transparent hover:border-brand transition-all group/link"
                   >
                     Learn More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </div>
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* Apostle Section */}
-      <section className="py-32 bg-white relative">
+      <section className="py-15 md:px-32 px-6 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <motion.div 
@@ -281,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 bg-[#fafafa] overflow-hidden relative">
+      <section className="py-20 md:px-32 px-6 bg-[#fafafa] overflow-hidden relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Testimonies</span>

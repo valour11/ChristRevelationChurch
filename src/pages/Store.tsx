@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import SEO from '../components/SEO';
 import { ShoppingCart, Search, Filter, ShoppingBag, Sparkles, Star, X, Plus, Minus, Trash2, CreditCard, Loader2, CheckCircle, Send } from 'lucide-react';
 
 const products = [
@@ -105,6 +106,10 @@ export default function Store() {
   };
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="Ministry Store" 
+        description="Access spiritual resources, books, and teachings by Apostle Godwin Bantar to deepen your faith and leadership journey."
+      />
       {/* Header */}
       <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />

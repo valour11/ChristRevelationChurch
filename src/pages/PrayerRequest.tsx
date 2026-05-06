@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import SEO from '../components/SEO';
 import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import prayer1 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.39 PM.jpeg';
 import prayer2 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.41 PM.jpeg';
@@ -67,6 +68,10 @@ export default function PrayerRequest() {
   };
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
+      <SEO 
+        title="Prayer Requests" 
+        description="Submit your prayer requests and join our community of intercessors. We believe in the power of prayer to transform lives."
+      />
       {/* Hero / Header */}
       <section className="relative pt-32 pb-24 bg-black text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-30">
