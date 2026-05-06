@@ -13,7 +13,8 @@ import {
   Facebook,
   Youtube
 } from 'lucide-react';
-import bantar from "..//assets/bantar.jpg";
+import bantar from "../assets/bantar.jpg";
+import heroimg from "../assets/hero-img.jpeg"
 
 const programs = [
   {
@@ -84,10 +85,9 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=2000" 
+            src={heroimg} 
             alt="Hero Background" 
             className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
