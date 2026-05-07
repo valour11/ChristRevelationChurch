@@ -7,8 +7,8 @@ import logo from '../assets/logo.jpeg';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Programs', path: '/#programs' },
-  { name: 'Store', path: '/store' },
+  // { name: 'Programs', path: '/#programs' },
+  // { name: 'Store', path: '/store' },
   { name: 'School', path: '/school' },
   { name: 'Prayer Request', path: '/prayer-request' },
   { name: 'Partnership', path: '/partnership' },
@@ -36,17 +36,17 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled ? 'bg-white/70 backdrop-blur-lg border-b border-brand/10 py-3 shadow-sm' : 'bg-transparent py-6'
     }`}>
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-12 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-brand/20 group-hover:scale-105 transition-transform overflow-hidden p-0.5">
-            <img src={logo} alt="Bantar Ministries Logo" className="w-full h-full object-cover rounded-lg" />
+            <img src={logo} alt="Christ's Revelation International Church Logo" className="w-full h-full object-cover rounded-lg" />
           </div>
           <div className="flex flex-col">
             <span className={`font-display font-bold text-xl leading-tight tracking-tight ${scrolled ? 'text-black' : 'text-white'}`}>
-              BANTAR
+              Christ's
             </span>
             <span className={`text-[10px] uppercase tracking-[0.2em] font-medium ${scrolled ? 'text-brand' : 'text-brand-light'}`}>
-              Ministries
+              Revelation Int'l Church
             </span>
           </div>
         </Link>

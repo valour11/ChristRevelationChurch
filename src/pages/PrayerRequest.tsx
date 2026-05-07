@@ -112,7 +112,7 @@ export default function PrayerRequest() {
       </section>
       {/* image slider */}
       <section className="h-[40vh]">
-         <div className="relative group overflow-hidden rounded-[24px] aspect-[4/3] bg-black/5 border border-brand/10 shadow-2xl">
+         <div className="relative group overflow-hidden aspect-[4/3] bg-black/5 border border-brand/10 shadow-2xl">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={currentImageIndex}

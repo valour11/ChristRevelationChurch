@@ -91,14 +91,14 @@ export default function Partnership() {
         description="Partner with Apostle Godwin Bantar Ministries. Support our mission to spread God's word and impact lives globally through your generosity."
       />
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black text-white pt-20">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black text-white pt-30">
         <div className="absolute inset-0 z-0 text-white">
-          <img 
+          {/* <img 
             src="https://images.unsplash.com/photo-1559027615-cd2d71242b5e?auto=format&fit=crop&q=80&w=2000" 
             alt="Partnership" 
             className="w-full h-full object-cover opacity-60 mix-blend-overlay"
             referrerPolicy="no-referrer"
-          />
+          /> */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
         
@@ -133,7 +133,7 @@ export default function Partnership() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex justify-center gap-8 text-brand font-bold text-xs uppercase tracking-widest"
+              className="flex justify-center gap-8 text-brand font-bold text-xs uppercase tracking-widest mb-6"
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />
@@ -202,7 +202,7 @@ export default function Partnership() {
       </section>
 
       {/* Partnership Tiers */}
-      <section className="py-32 bg-[#fafafa] relative overflow-hidden">
+      <section className="py-12 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Tiers</span>

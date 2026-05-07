@@ -30,7 +30,7 @@ const products = [
   },
   {
     id: 4,
-    title: "Prophetic Insights",
+    title: "Apostolic Insights",
     author: "Apostle Godwin BANTAR",
     price: 15.00,
     category: "Audio",

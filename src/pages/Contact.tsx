@@ -120,8 +120,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="text-xl font-display font-bold text-black mb-2 group-hover:text-brand transition-colors">Regional Presence</h4>
-                        <p className="text-text-muted font-medium leading-relaxed">Yaoundé, Cameroon</p>
-                        <p className="text-text-muted font-medium leading-relaxed">P.O. Box 1234, Centre Region</p>
+                        <p className="text-text-muted font-medium leading-relaxed">Etoa bridge, Yaoundé</p>
+                        <p className="text-text-muted font-medium leading-relaxed">Center Region, Cameroon</p>
                       </div>
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export default function Contact() {
                   viewport={{ once: true }}
                   className="pt-12 border-t border-brand/5"
                 >
-                  <h4 className="text-xs font-bold text-black uppercase tracking-[0.2em] mb-8">Prophetic Socials</h4>
+                  <h4 className="text-xs font-bold text-black uppercase tracking-[0.2em] mb-8">Apostolic Socials</h4>
                   <div className="flex gap-4">
                     {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
                       <a key={i} href="#" className="w-14 h-14 rounded-2xl bg-[#fafafa] flex items-center justify-center text-text-muted hover:bg-black hover:text-white transition-all duration-300 group shadow-sm">

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
+import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle, Download, FileText } from 'lucide-react';
 import SEO from '../components/SEO';
 import schoolImg from "../assets/bibleSchool.jpeg";
+import foundationCourse from "../assets/FOUNDATION CLASS COURSE (1).docx";
+import { Link } from 'react-router-dom';
 
 export default function School() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -57,8 +59,8 @@ export default function School() {
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
       <SEO 
-        title="Leadership School (CRISOM)" 
-        description="Enroll in the Christ Revelation School of Ministry (CRISOM). Equip yourself with transformative leadership skills and spiritual depth."
+        title="Christ's Revelation School of Ministry (CRISOM)" 
+        description="Enroll in Christ's Revelation School of Ministry (CRISOM). Equip yourself with transformative leadership skills and spiritual depth."
       />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-black text-white pt-20">
@@ -73,15 +75,15 @@ export default function School() {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mt-10">
-            <motion.div
+          <div className="max-w-8xl mt-10 px-24">
+            {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
             >
               <GraduationCap className="w-3 h-3 text-brand" />
               <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">School Of Ministry</span>
-            </motion.div>
+            </motion.div> */}
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -97,7 +99,7 @@ export default function School() {
               transition={{ delay: 0.1 }}
               className="text-xl text-white/60 mb-12 max-w-2xl leading-relaxed font-medium"
             >
-              Equipping the next generation of spiritual leaders with biblical wisdom, practical skills, and prophetic insight for global impact.
+              Equipping the next generation of spiritual leaders with biblical wisdom, practical skills, and apostolic insight for global impact.
             </motion.p>
             
             <motion.button 
@@ -105,9 +107,13 @@ export default function School() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               onClick={() => setIsEnrollModalOpen(true)}
-              className="px-10 py-5 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center gap-3"
+              className="px-10 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center gap-3 mb-6"
             >
-              Enroll Now <Sparkles className="w-4 h-4" />
+              <Link to="#"
+                className='cursor-pointer flex w-full justify-center items-center gap-3'
+              >
+                Enroll Now <Sparkles className="w-4 h-4" />
+              </Link>
             </motion.button>
           </div>
         </div>
@@ -140,7 +146,7 @@ export default function School() {
       </section>
 
         {/* About School of ministry */}
-      <section className="py-8 bg-[#fafafa] relative overflow-hidden">
+      <section className="py-8 px-24 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             {/* <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Pathway</span> */}
@@ -152,7 +158,7 @@ export default function School() {
             {[
               { level: "Level 1", title: "Foundations of Faith", modules: ["Biblical Interpretation", "Character Development", "Dynamics of Prayer"] },
               { level: "Level 2", title: "Ministry Essentials", modules: ["Homiletics & Preaching", "Pastoral Care", "Church Management"] },
-              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Prophetic Ministry"] }
+              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Apostolic Ministry"] }
             ].map((c, i) => (
               <motion.div 
                 key={i}
@@ -183,11 +189,46 @@ export default function School() {
         </div>
       </section>
 
+      {/* Foundation Class Course Download */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto bg-gradient-to-br from-brand/5 to-brand/10 rounded-[48px] p-12 md:p-16 border border-brand/10 text-center relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
+            
+            <div className="relative z-10">
+              <div className="w-20 h-20 bg-brand rounded-[24px] flex items-center justify-center mx-auto mb-8 shadow-xl shadow-brand/20">
+                <FileText className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">
+                Foundation Class Course
+              </h3>
+              <p className="text-text-muted text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+                Download the Foundation Class Course to begin your journey in the Christ's Revelation School of Ministry. This comprehensive course will establish you in the foundational truths of the faith.
+              </p>
+              <a 
+                href={foundationCourse} 
+                download
+                className="inline-flex items-center gap-3 px-10 py-5 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/20 active:scale-95"
+              >
+                <Download className="w-5 h-5" />
+                Download Now
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
         
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -202,7 +243,7 @@ export default function School() {
                 {[
                   { title: "Biblical Foundation", desc: "Deep dive into the scriptures with expert theological guidance.", icon: <BookOpen className="w-6 h-6" /> },
                   { title: "Practical Training", desc: "Learn real-world ministry skills from experienced leaders.", icon: <Award className="w-6 h-6" /> },
-                  { title: "Prophetic Mentorship", desc: "Receive personal guidance and spiritual activation.", icon: <Star className="w-6 h-6" /> },
+                  { title: "Apostolic Mentorship", desc: "Receive personal guidance and spiritual activation.", icon: <Star className="w-6 h-6" /> },
                   { title: "Global Community", desc: "Connect with fellow students and leaders worldwide.", icon: <Users className="w-6 h-6" /> }
                 ].map((f, i) => (
                   <div key={i} className="flex gap-6 group">
@@ -259,7 +300,7 @@ export default function School() {
             {[
               { level: "Level 1", title: "Foundations of Faith", modules: ["Biblical Interpretation", "Character Development", "Dynamics of Prayer"] },
               { level: "Level 2", title: "Ministry Essentials", modules: ["Homiletics & Preaching", "Pastoral Care", "Church Management"] },
-              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Prophetic Ministry"] }
+              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Apostolic Ministry"] }
             ].map((c, i) => (
               <motion.div 
                 key={i}
@@ -320,7 +361,7 @@ export default function School() {
                     <GraduationCap className="w-6 h-6 text-brand" />
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Enrollment Form</span>
                   </div>
-                  <h3 className="text-3xl font-display font-bold text-black mb-10 leading-tight">Join the Leadership <span className="text-brand">School</span></h3>
+                  <h3 className="text-3xl font-display font-bold text-black mb-10 leading-tight">Join Christ's Revelation <span className="text-brand">School of Ministry</span></h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

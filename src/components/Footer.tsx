@@ -4,26 +4,26 @@ import logo from '../assets/logo.jpeg';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white/70 pt-24 pb-12">
+    <footer className="bg-black text-white/70 pt-24 pb-12 px-14">
       <div className="container mx-auto px-15">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand */}
           <div className="space-y-8">
             <Link to="/" className="flex items-center gap-3">
               <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-brand/20 overflow-hidden p-0.5">
-                <img src={logo} alt="Bantar Ministries Logo" className="w-full h-full object-cover rounded-xl" />
+                <img src={logo} alt="Christ's Revelation International Church Logo" className="w-full h-full object-cover rounded-xl" />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-2xl text-white leading-tight tracking-tight">
-                  BANTAR
+                  Christ's
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-brand">
-                  Ministries
+                  Revelation Int'l Church
                 </span>
               </div>
             </Link>
             <p className="text-white/50 leading-relaxed text-sm">
-              Empowering lives through faith, transformative leadership, and intentional community. Join us as we strive for spiritual excellence together.
+              Revealing Christ Jesus; Revealing His Kingdom. Join us as we bring Christ's Kingdom to man through the revelation of His written Word, the demonstration of His power, and getting the world ready for His second coming.
             </p>
             <div className="flex gap-3">
               {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
@@ -43,8 +43,8 @@ export default function Footer() {
             <h4 className="text-white font-display font-bold text-lg mb-8 uppercase tracking-widest text-sm">Quick Links</h4>
             <ul className="space-y-6">
               <li><Link to="/" className="hover:text-brand transition-colors text-sm">Home</Link></li>
-              <li><Link to="/about" className="hover:text-brand transition-colors text-sm">About Apostle Godwin</Link></li>
-              <li><Link to="/school" className="hover:text-brand transition-colors text-sm">Leadership School</Link></li>
+              <li><Link to="/about" className="hover:text-brand transition-colors text-sm">About Us</Link></li>
+              <li><Link to="/school" className="hover:text-brand transition-colors text-sm">School of Ministry</Link></li>
               <li><Link to="/partnership" className="hover:text-brand transition-colors text-sm">Partnership</Link></li>
             </ul>
           </div>
@@ -56,7 +56,7 @@ export default function Footer() {
               <li><Link to="/store" className="hover:text-brand transition-colors text-sm">Store & Media</Link></li>
               <li><Link to="/prayer-request" className="hover:text-brand transition-colors text-sm">Prayer Command</Link></li>
               <li><Link to="/contact" className="hover:text-brand transition-colors text-sm">Get in Touch</Link></li>
-              <li><Link to="/login" className="hover:text-brand transition-colors text-sm">Admin Portal</Link></li>
+              {/* <li><Link to="/login" className="hover:text-brand transition-colors text-sm">Admin Portal</Link></li> */}
             </ul>
           </div>
 
@@ -82,12 +82,22 @@ export default function Footer() {
                   <a href="tel:+237673587463" className="text-white hover:text-brand transition-colors text-sm">+237 6 73 58 74 63</a>
                 </div>
               </li>
+              <li className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5 text-brand" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] uppercase font-bold text-brand tracking-widest mb-1">Address</span>
+                  <span className="text-white text-sm">Etoa bridge, Yaoundé</span>
+                  <span className="text-white/50 text-xs">Center Region, Cameroon</span>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-xs text-white/30 italic font-medium">© {new Date().getFullYear()} Apostle Godwin BANTAR Ministry. All rights reserved.</p>
+          <p className="text-xs text-white/30 italic font-medium">© {new Date().getFullYear()} Christ's Revelation International Church. All rights reserved.</p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-bold text-white/20">
             <a href="#" className="hover:text-brand">Privacy Policy</a>
             <a href="#" className="hover:text-brand">Terms of Service</a>

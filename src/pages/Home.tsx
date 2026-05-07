@@ -1,24 +1,29 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import { 
-  BookOpen, 
-  MessageSquare, 
-  Users, 
-  ShoppingBag, 
-  Lightbulb, 
+import {
+  BookOpen,
+  MessageSquare,
+  Users,
+  ShoppingBag,
+  Lightbulb,
   Mail,
   ArrowRight,
   Quote,
   Facebook,
-  Youtube
+  Youtube,
+  Clock,
+  Sun,
+  Moon,
+  ExternalLink
 } from 'lucide-react';
 import bantar from "../assets/bantar.jpg";
-import heroimg from "../assets/hero-img.jpeg"
+import heroimg from "../assets/hero-img.jpeg";
+import prayerWatch from "../assets/daily-prayer-watch.jpeg";
 
 const programs = [
   {
-    title: "Leadership School",
+    title: "Christ's Revelation School of Ministry",
     description: "Comprehensive training program designed to develop spiritual leaders and equip them with biblical knowledge.",
     icon: <BookOpen className="w-6 h-6" />,
     link: "/school",
@@ -77,16 +82,16 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-[#fdfdfd]">
-      <SEO 
-        title="Apostle Godwin Bantar Ministries" 
+      <SEO
+        title="Christ's Revelation International Church"
         description="Experience transformative faith and leadership with Apostle Godwin Bantar. Empowering lives through intentional community and spiritual excellence."
       />
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black text-white pt-20">
+      <section className="relative min-h-[115vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroimg} 
-            alt="Hero Background" 
+          <img
+            src={heroimg}
+            alt="Hero Background"
             className="w-full h-full object-cover opacity-60 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -103,41 +108,42 @@ export default function Home() {
               <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
               <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Spiritual Excellence & Leadership</span>
             </motion.div> */}
-             
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-[1.05] tracking-tight text-center"
             >
-              Apostle Godwin <br />
-              <span className="text-brand">BANTAR</span> Ministry
+              Christ's Revelation <br />
+              <span className="text-brand">International Church</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl leading-relaxed font-medium text-center"
             >
-              Empowering lives through faith, spiritual growth, and transformative leadership education. Join thousands of believers on their journey to spiritual excellence.
+
+              Revelation through the Written Word, the demonstration of His power and getting men ready for His second coming.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-5"
             >
-              <Link 
-                to="/partnership" 
+              <Link
+                to="/partnership"
                 className="group px-6 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95"
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link 
-                to="/partnership" 
+              <Link
+                to="/partnership"
                 className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold backdrop-blur-md transition-all flex items-center justify-center active:scale-95"
               >
                 Partner With Us
@@ -145,9 +151,9 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-[-45px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-30"
@@ -160,7 +166,7 @@ export default function Home() {
       {/* Programs Section */}
       <section id="programs" className="py-20 md:px-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
             <div className="max-w-2xl">
@@ -205,42 +211,142 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Daily Prayer Watch */}
+      <section className="py-20 md:px-32 px-6 bg-[#fafafa] overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 -translate-x-1/2" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Daily Connection</span>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">Daily Prayer Watch</h2>
+              <p className="text-text-muted text-lg font-medium max-w-3xl mx-auto leading-relaxed">
+                Join the man of God daily for powerful prayer sessions as we seek the face of the Lord together.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border border-brand/10">
+                  <img
+                    src={prayerWatch}
+                    alt="Daily Prayer Watch"
+                    className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-brand/10 rounded-full blur-3xl -z-10" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-10"
+              >
+                {/* Morning Session */}
+                <div className="p-8 bg-white rounded-[32px] border border-brand/5 card-shadow group hover:border-brand/20 transition-all">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform">
+                      <Sun className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-2xl font-display font-bold text-black">Morning Session</h4>
+                      <p className="text-sm font-medium text-text-muted">Start your day with power</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-text-muted">
+                    <Clock className="w-5 h-5 text-brand" />
+                    <span className="font-bold text-lg text-black">11:00 AM — 12:30 PM</span>
+                  </div>
+                </div>
+
+                {/* Night Session */}
+                <div className="p-8 bg-white rounded-[32px] border border-brand/5 card-shadow group hover:border-brand/20 transition-all">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform">
+                      <Moon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-2xl font-display font-bold text-black">Night Session</h4>
+                      <p className="text-sm font-medium text-text-muted">End your day in prayer</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-text-muted">
+                    <Clock className="w-5 h-5 text-brand" />
+                    <span className="font-bold text-lg text-black">11:30 PM — 12:30 AM</span>
+                  </div>
+                </div>
+
+                {/* Live Stream Links */}
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-8 py-5 bg-[#1877F2] text-white rounded-2xl font-bold hover:bg-[#166fe5] transition-all shadow-xl active:scale-95"
+                  >
+                    <Facebook className="w-5 h-5" />
+                    Watch on Facebook
+                    <ExternalLink className="w-4 h-4 opacity-70" />
+                  </a>
+                  <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-8 py-5 bg-[#FF0000] text-white rounded-2xl font-bold hover:bg-[#CC0000] transition-all shadow-xl active:scale-95"
+                  >
+                    <Youtube className="w-5 h-5" />
+                    Watch on YouTube
+                    <ExternalLink className="w-4 h-4 opacity-70" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Apostle Section */}
-      <section className="py-15 md:px-32 px-6 bg-white relative">
+      <section className="py-15 md:px-24 px-6 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="lg:w-1/2 relative"
+              // className="lg:w-1/2 relative"
+              className="lg:w-1/2 lg:sticky lg:top-32 relative"
             >
               <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl shadow-brand/20">
-                <img 
-                  src={bantar} 
-                  alt="Apostle Godwin BANTAR" 
+                <img
+                  src={bantar}
+                  alt="Apostle Godwin BANTAR"
                   className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand/10 rounded-full blur-3xl" />
               <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-brand/5 rounded-full blur-3xl transition-all" />
-              
+
               <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-3xl shadow-xl z-20 hidden md:block border border-brand/5">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center">
                     <Users className="w-6 h-6 text-brand" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-black">15+</div>
+                    <div className="text-2xl font-bold text-black">4+</div>
                     <div className="text-[10px] uppercase tracking-widest font-bold text-text-muted">Years Ministry</div>
                   </div>
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -253,15 +359,24 @@ export default function Home() {
               </h2>
               <div className="space-y-6 text-text-muted text-lg leading-relaxed font-medium">
                 <p>
-                  With years of dedicated service to God and His people, Apostle Godwin BANTAR has established a ministry focused on spiritual transformation and community development. His vision is to empower believers to reach their full potential in Christ.
+                  Apostle Godwin Bantar is a purpose-driven Cameroonian leader from Nkambe, in the Donga Mantung Division of the North West Region of Cameroon. He was born and raised by his parents, Pa Joseph Mbunwe and Ma Odilia Munkeng, who are both now resting in the Lord.
                 </p>
                 <p>
-                  Through prophetic ministry, teaching, and pastoral care, the ministry has touched thousands of lives, creating a thriving community committed to biblical truth and spiritual excellence.
+                  Apostle Godwin Bantar is a called and ordained servant of God, faithfully serving in the office of an apostle. He is widely known for his passion for revival and his dedication to advancing the Kingdom of God through ministry, leadership, and evangelism.
+                </p>
+                <p>
+                  Driven by a strong burden for spiritual awakening, he founded Christ's Revelation International Church, a growing Christian church movement headquartered in Yaoundé, Cameroon. Through his ministry, many lives have been impacted spiritually, socially, and economically.
+                </p>
+                <p>
+                  Beyond ministry, Apostle Godwin Bantar is also a passionate entrepreneur involved in multiple business and community development initiatives. He is especially recognized for his compassion toward the less privileged. Over the years, he and his congregation have consistently organized empowerment and humanitarian activities aimed at supporting vulnerable individuals both within the church and in the wider community.
+                </p>
+                <p>
+                  He is happily married to Pastor Mrs. Ethel Bantar, and together they are blessed with three wonderful children: one son and two daughters.
                 </p>
               </div>
-              <div className="mt-12 flex items-center gap-6">
-                <Link 
-                  to="/about" 
+              {/* <div className="mt-12 flex items-center gap-6">
+                <Link
+                  to="/about"
                   className="px-10 py-5 bg-black text-white rounded-2xl font-bold hover:bg-brand transition-all shadow-xl shadow-black/10 active:scale-95"
                 >
                   Full Biography
@@ -274,11 +389,13 @@ export default function Home() {
                     <Youtube className="w-5 h-5 text-brand hover:scale-110 transition-transform cursor-pointer" />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>
       </section>
+
+      
 
       {/* Testimonials */}
       <section className="py-20 md:px-32 px-6 bg-[#fafafa] overflow-hidden relative">
@@ -291,7 +408,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {testimonials.map((t, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -329,7 +446,7 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(0,0,0,0.1),transparent)]" />
         </div>
-        
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -343,14 +460,14 @@ export default function Home() {
               Join our mission to spread God's word and impact lives globally. Your partnership makes a real difference in the lives of thousands.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link 
-                to="/partnership" 
+              <Link
+                to="/partnership"
                 className="px-12 py-5 bg-white text-brand rounded-2xl font-bold hover:bg-brand-light transition-all shadow-2xl shadow-black/10 active:scale-95"
               >
                 Learn About Partnership
               </Link>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="px-12 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-brand-dark/80 transition-all border border-white/20 active:scale-95"
               >
                 Contact Us Today
