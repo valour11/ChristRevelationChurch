@@ -26,10 +26,10 @@ export default function Footer() {
               Revealing Christ Jesus; Revealing His Kingdom. Join us as we bring Christ's Kingdom to man through the revelation of His written Word, the demonstration of His power, and getting the world ready for His second coming.
             </p>
             <div className="flex gap-3">
-              {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
+              {[Facebook, Youtube].map((Icon, i) => (
                 <a 
                   key={i} 
-                  href="#" 
+                  href="https://www.facebook.com/profile.php?id=61555677206385&mibextid=ZbWKwL" 
                   className="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-brand hover:text-white transition-all transform hover:-translate-y-1"
                 >
                   <Icon className="w-5 h-5" />

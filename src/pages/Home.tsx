@@ -87,7 +87,7 @@ export default function Home() {
         description="Experience transformative faith and leadership with Apostle Godwin Bantar. Empowering lives through intentional community and spiritual excellence."
       />
       {/* Hero Section */}
-      <section className="relative min-h-screen md:min-h-[100vh] flex items-center overflow-hidden bg-black text-white pt-20">
+      <section className="relative min-h-screen md:min-h-[90vh] flex items-center overflow-hidden bg-black text-white pt-16">
         <div className="absolute inset-0 z-0">
           <img
             src={heroimg}
@@ -284,7 +284,7 @@ export default function Home() {
                 {/* Live Stream Links */}
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/profile.php?id=61555677206385&mibextid=ZbWKwL"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-8 py-5 bg-[#1877F2] text-white rounded-2xl font-bold hover:bg-[#166fe5] transition-all shadow-xl active:scale-95"
@@ -294,7 +294,7 @@ export default function Home() {
                     <ExternalLink className="w-4 h-4 opacity-70" />
                   </a>
                   <a
-                    href="https://youtube.com"
+                    href="https://youtube.com/@apostlegodwinbantar?si=8aUrpJCLHljxW-tA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-8 py-5 bg-[#FF0000] text-white rounded-2xl font-bold hover:bg-[#CC0000] transition-all shadow-xl active:scale-95"
@@ -374,22 +374,22 @@ export default function Home() {
                   He is happily married to Pastor Mrs. Ethel Bantar, and together they are blessed with three wonderful children: one son and two daughters.
                 </p>
               </div>
-              {/* <div className="mt-12 flex items-center gap-6">
-                <Link
+              <div className="mt-12 flex items-center gap-6">
+                {/* <Link
                   to="/about"
                   className="px-10 py-5 bg-black text-white rounded-2xl font-bold hover:bg-brand transition-all shadow-xl shadow-black/10 active:scale-95"
                 >
                   Full Biography
-                </Link>
+                </Link> */}
                 <div className="h-12 w-[1px] bg-brand/20" />
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-text-muted uppercase tracking-widest">Connect</span>
                   <div className="flex gap-4 mt-2">
-                    <Facebook className="w-5 h-5 text-brand hover:scale-110 transition-transform cursor-pointer" />
-                    <Youtube className="w-5 h-5 text-brand hover:scale-110 transition-transform cursor-pointer" />
+                    <a href="https://www.facebook.com/profile.php?id=61555677206385&mibextid=ZbWKwL"><Facebook className="w-5 h-5 text-brand hover:scale-110 transition-transform cursor-pointer" /></a>
+                    <a href="https://youtube.com/@apostlegodwinbantar?si=8aUrpJCLHljxW-tA"><Youtube className="w-5 h-5 text-brand hover:scale-110 transition-transform cursor-pointer" /></a>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </motion.div>
           </div>
         </div>
