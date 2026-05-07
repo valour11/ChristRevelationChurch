@@ -87,7 +87,7 @@ export default function Home() {
         description="Experience transformative faith and leadership with Apostle Godwin Bantar. Empowering lives through intentional community and spiritual excellence."
       />
       {/* Hero Section */}
-      <section className="relative min-h-[115vh] flex items-center overflow-hidden bg-black text-white pt-20">
+      <section className="relative min-h-screen md:min-h-[100vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">
           <img
             src={heroimg}
@@ -113,9 +113,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-[1.05] tracking-tight text-center"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 md:mb-8 leading-[1.05] tracking-tight text-center"
             >
-              Christ's Revelation <br />
+              Christ's Revelation{' '}
+              <br className="hidden sm:block" />
               <span className="text-brand">International Church</span>
             </motion.h1>
 
@@ -123,9 +124,8 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl leading-relaxed font-medium text-center"
+              className="text-base sm:text-lg md:text-xl text-white/60 mb-8 md:mb-12 max-w-2xl leading-relaxed font-medium text-center px-4"
             >
-
               Revelation through the Written Word, the demonstration of His power and getting men ready for His second coming.
             </motion.p>
 
@@ -137,14 +137,14 @@ export default function Home() {
             >
               <Link
                 to="/partnership"
-                className="group px-6 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95"
+                className="group px-6 py-4 md:px-6 md:py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/partnership"
-                className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold backdrop-blur-md transition-all flex items-center justify-center active:scale-95"
+                className="px-8 py-4 md:px-10 md:py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold backdrop-blur-md transition-all flex items-center justify-center active:scale-95 w-full sm:w-auto"
               >
                 Partner With Us
               </Link>
@@ -188,7 +188,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-10 bg-white rounded-[32px] border border-brand/5 card-shadow hover:border-brand/20 transition-all flex flex-col h-full active:scale-[0.98]"
+                className="group p-6 md:p-10 bg-white rounded-[32px] border border-brand/5 card-shadow hover:border-brand/20 transition-all flex flex-col h-full active:scale-[0.98]"
               >
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all group-hover:scale-110 group-hover:rotate-3 shadow-lg ${program.color.replace('blue', 'brand').replace('purple', 'brand').replace('green', 'brand').replace('amber', 'brand').replace('rose', 'brand').replace('indigo', 'brand')}`}>
                   {program.icon}
@@ -414,10 +414,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="p-12 bg-white rounded-[40px] relative card-shadow border border-brand/5"
+                className="p-6 md:p-12 bg-white rounded-[32px] md:rounded-[40px] relative card-shadow border border-brand/5"
               >
-                <Quote className="absolute top-12 right-12 w-16 h-16 text-brand/5" />
-                <div className="flex gap-1 mb-8">
+                <Quote className="absolute top-6 right-6 md:top-12 md:right-12 w-10 h-10 md:w-16 md:h-16 text-brand/5" />
+                <div className="flex gap-1 mb-6 md:mb-8">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="w-2 h-2 rounded-full bg-brand/20" />
                   ))}
@@ -441,7 +441,7 @@ export default function Home() {
       </section>
 
       {/* Partnership CTA */}
-      <section className="py-32 relative overflow-hidden bg-brand">
+      <section className="py-20 md:py-32 relative overflow-hidden bg-brand">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(0,0,0,0.1),transparent)]" />
@@ -453,22 +453,22 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-white leading-tight">
-              Become a <span className="text-black/20">Kingdom</span> Partner
-            </h2>
-            <p className="text-xl text-white/80 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 md:mb-8 text-white leading-tight">
+                Become a <span className="text-black/20">Kingdom</span> Partner
+              </h2>
+              <p className="text-lg md:text-xl text-white/80 mb-10 md:mb-14 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Join our mission to spread God's word and impact lives globally. Your partnership makes a real difference in the lives of thousands.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 to="/partnership"
-                className="px-12 py-5 bg-white text-brand rounded-2xl font-bold hover:bg-brand-light transition-all shadow-2xl shadow-black/10 active:scale-95"
+                className="px-8 md:px-12 py-4 md:py-5 bg-white text-brand rounded-2xl font-bold hover:bg-brand-light transition-all shadow-2xl shadow-black/10 active:scale-95 w-full sm:w-auto text-center"
               >
                 Learn About Partnership
               </Link>
               <Link
                 to="/contact"
-                className="px-12 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-brand-dark/80 transition-all border border-white/20 active:scale-95"
+                className="px-8 md:px-12 py-4 md:py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-brand-dark/80 transition-all border border-white/20 active:scale-95 w-full sm:w-auto text-center"
               >
                 Contact Us Today
               </Link>

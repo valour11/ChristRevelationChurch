@@ -4,8 +4,8 @@ import logo from '../assets/logo.jpeg';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white/70 pt-24 pb-12 px-14">
-      <div className="container mx-auto px-15">
+    <footer className="bg-black text-white/70 pt-24 pb-12 px-4 sm:px-6 lg:px-14">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-15">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand */}
           <div className="space-y-8">

@@ -115,16 +115,17 @@ export default function Partnership() {
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             >
-              Christ’s Revelation <br />International Church
+              Christ’s Revelation{' '}
+              <br className="hidden sm:block" />International Church
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed mb-12 font-medium"
+              className="text-base sm:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 font-medium px-4"
             >
               This department of the ministry is for those who believe in the grace of GOD at work in the life of his servant, Apostle Godwin Bantar. Join us as a personal covenant with the almighty GOD.
             </motion.p>
@@ -188,7 +189,7 @@ export default function Partnership() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-10 bg-[#fafafa] rounded-[40px] hover:bg-white hover:shadow-2xl transition-all border border-transparent hover:border-brand/10 active:scale-[0.98]"
+                className="group p-6 md:p-10 bg-[#fafafa] rounded-[32px] md:rounded-[40px] hover:bg-white hover:shadow-2xl transition-all border border-transparent hover:border-brand/10 active:scale-[0.98]"
               >
                 <div className="w-16 h-16 rounded-[24px] bg-brand text-white flex items-center justify-center mb-8 shadow-lg shadow-brand/20 group-hover:scale-110 group-hover:rotate-3 transition-all">
                   {item.icon}
@@ -231,7 +232,7 @@ export default function Partnership() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className={`group p-12 rounded-[48px] bg-white border ${i === 1 ? 'border-brand shadow-2xl scale-105 z-10' : 'border-brand/5 shadow-xl'} relative overflow-hidden active:scale-[0.98] transition-all`}
+                className={`group p-6 md:p-12 rounded-[32px] md:rounded-[48px] bg-white border ${i === 1 ? 'border-brand shadow-2xl md:scale-105 z-10' : 'border-brand/5 shadow-xl'} relative overflow-hidden active:scale-[0.98] transition-all`}
               >
                 {i === 1 && (
                   <div className="absolute top-0 right-0 px-6 py-2 bg-brand text-white text-[10px] font-bold tracking-[0.2em] rounded-bl-3xl uppercase">
@@ -242,7 +243,7 @@ export default function Partnership() {
                 <h4 className="text-xs font-bold tracking-[0.3em] text-brand/60 mb-8 uppercase">{tier.name}</h4>
                 
                 <div className="mb-10">
-                  <div className="text-3xl md:text-4xl font-display font-bold text-black mb-2">{tier.range}</div>
+                  <div className="text-xl md:text-4xl font-display font-bold text-black mb-2">{tier.range}</div>
                   <div className="text-text-muted text-sm font-bold uppercase tracking-widest opacity-60">Monthly Pledge</div>
                 </div>
 
@@ -272,7 +273,7 @@ export default function Partnership() {
             <div className="bg-black rounded-[48px] overflow-hidden shadow-2xl relative">
               <div className="absolute top-0 right-0 w-96 h-96 bg-brand/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
               
-              <div className="p-12 md:p-16 border-b border-white/5 relative z-10">
+              <div className="p-6 sm:p-8 md:p-16 border-b border-white/5 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
                   <Sparkles className="w-5 h-5 text-brand" />
                   <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Registration</span>
@@ -289,9 +290,9 @@ export default function Partnership() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     ref={formRef}
                     onSubmit={handleSubmit} 
-                    className="p-12 md:p-16 space-y-12 relative z-10"
+                    className="p-6 sm:p-8 md:p-16 space-y-8 md:space-y-12 relative z-10"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-10">
                       <div className="space-y-4">
                         <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Full Names</label>
                         <input 
@@ -461,7 +462,7 @@ export default function Partnership() {
                     key="success"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-12 md:p-24 text-center space-y-8 relative z-10"
+                    className="p-8 md:p-24 text-center space-y-8 relative z-10"
                   >
                     <div className="w-24 h-24 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-8">
                       <CheckCircle className="w-12 h-12 text-brand" />

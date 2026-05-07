@@ -83,7 +83,7 @@ export default function About() {
       </section>
 
       {/* Biography Section */}
-      <section className="py-32 px-24 bg-white relative">
+      <section className="py-16 md:py-32 px-4 sm:px-6 lg:px-24 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-start">
             <motion.div
@@ -94,7 +94,7 @@ export default function About() {
               className="lg:w-1/2 lg:sticky lg:top-32"
             >
               <div className="relative">
-                <div className="relative z-10 rounded-[48px] overflow-hidden shadow-2xl shadow-brand/10 border border-brand/5 w-[600px] h-[600px]">
+                <div className="relative z-10 rounded-[32px] md:rounded-[48px] overflow-hidden shadow-2xl shadow-brand/10 border border-brand/5 w-full md:w-[600px] md:h-[600px]">
                   <img
                     src={logo}
                     alt="Apostle Godwin BANTAR"
@@ -112,11 +112,11 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="lg:w-1/2 space-y-12"
+              className="lg:w-1/2 space-y-8 md:space-y-12 mt-8 lg:mt-0"
             >
               <div>
                 <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Our Story</span>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-black leading-tight mb-8">
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-black leading-tight mb-6 md:mb-8">
                   The History of <br />Our Church
                 </h2>
                 {/* Vision , Mission and Values */}
@@ -154,7 +154,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="p-10 bg-brand/5 rounded-[40px] border border-brand/10 relative overflow-hidden group">
+              <div className="p-6 md:p-10 bg-brand/5 rounded-[24px] md:rounded-[40px] border border-brand/10 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-700" />
                 <p className="text-black font-bold italic text-xl leading-relaxed relative z-10">
                   "To bring Christ's Kingdom to man through the revelation of His written Word, the demonstration of His power and getting them ready for His second coming."
@@ -184,7 +184,7 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-32 px-24 bg-[#fafafa] relative overflow-hidden">
+      <section className="py-16 md:py-32 px-4 sm:px-6 lg:px-24 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Principles</span>
@@ -207,7 +207,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-10 bg-white rounded-[32px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
+                className="group p-6 md:p-10 bg-white rounded-[32px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
               >
                 <div className="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all">
                   {value.icon}

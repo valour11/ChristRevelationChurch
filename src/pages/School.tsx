@@ -75,7 +75,7 @@ export default function School() {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-8xl mt-10 px-24">
+          <div className="max-w-8xl mt-10 px-4 sm:px-6 lg:px-24">
             {/* <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -88,16 +88,17 @@ export default function School() {
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight tracking-tight"
+              className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             >
-              Christ Revelation <br /><span className="text-brand">School Of Ministry</span><span>(CRISOM)</span>
+              Christ Revelation{' '}
+              <br className="hidden sm:block" /><span className="text-brand">School Of Ministry</span><span className="block sm:inline">(CRISOM)</span>
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-white/60 mb-12 max-w-2xl leading-relaxed font-medium"
+              className="text-base sm:text-xl text-white/60 mb-8 md:mb-12 max-w-2xl leading-relaxed font-medium"
             >
               Equipping the next generation of spiritual leaders with biblical wisdom, practical skills, and apostolic insight for global impact.
             </motion.p>
@@ -146,7 +147,7 @@ export default function School() {
       </section>
 
         {/* About School of ministry */}
-      <section className="py-8 px-24 bg-[#fafafa] relative overflow-hidden">
+      <section className="py-8 px-4 sm:px-6 lg:px-24 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             {/* <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Pathway</span> */}
@@ -166,7 +167,7 @@ export default function School() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-12 bg-white rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
+                className="group p-6 md:p-12 bg-white rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
               >
                 <div className="flex items-center justify-between mb-8">
                   <span className="text-brand font-bold text-[10px] uppercase tracking-[0.3em]">{c.level}</span>
@@ -228,7 +229,7 @@ export default function School() {
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
         
-        <div className="container mx-auto px-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -308,7 +309,7 @@ export default function School() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-12 bg-white rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
+                className="group p-6 md:p-12 bg-white rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
               >
                 <div className="flex items-center justify-between mb-8">
                   <span className="text-brand font-bold text-[10px] uppercase tracking-[0.3em]">{c.level}</span>
@@ -356,12 +357,12 @@ export default function School() {
               </button>
 
               {!isSuccess ? (
-                <div className="p-12 md:p-16">
+                <div className="p-6 sm:p-8 md:p-16">
                   <div className="flex items-center gap-3 mb-4">
                     <GraduationCap className="w-6 h-6 text-brand" />
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Enrollment Form</span>
                   </div>
-                  <h3 className="text-3xl font-display font-bold text-black mb-10 leading-tight">Join Christ's Revelation <span className="text-brand">School of Ministry</span></h3>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-black mb-6 md:mb-10 leading-tight">Join Christ's Revelation <span className="text-brand">School of Ministry</span></h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -450,7 +451,7 @@ export default function School() {
                   </form>
                 </div>
               ) : (
-                <div className="p-16 md:p-24 text-center">
+                <div className="p-8 md:p-24 text-center">
                   <div className="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-8">
                     <CheckCircle className="w-10 h-10 text-brand" />
                   </div>

@@ -147,17 +147,17 @@ export default function Store() {
               transition={{ delay: 0.2 }}
               className="flex items-center gap-4 w-full lg:w-auto"
             >
-              <div className="relative flex-grow lg:flex-grow-0">
+              <div className="relative flex-1 lg:flex-grow-0">
                 <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
                 <input 
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search resources..." 
-                  className="w-full lg:w-80 pl-12 pr-6 py-5 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all placeholder:text-white/20 font-medium text-white"
+                  className="w-full lg:w-80 pl-12 pr-6 py-4 md:py-5 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all placeholder:text-white/20 font-medium text-white text-sm md:text-base"
                 />
               </div>
-              <button className="p-5 bg-brand text-white rounded-2xl hover:bg-brand-dark transition-all shadow-xl shadow-brand/20 active:scale-95">
+              <button className="p-4 md:p-5 bg-brand text-white rounded-2xl hover:bg-brand-dark transition-all shadow-xl shadow-brand/20 active:scale-95 shrink-0">
                 <Filter className="w-5 h-5" />
               </button>
             </motion.div>
@@ -176,7 +176,7 @@ export default function Store() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group flex flex-col h-full bg-[#fafafa] p-4 rounded-[40px] border border-brand/5 hover:bg-white hover:shadow-2xl transition-all duration-500 active:scale-[0.98]"
+                className="group flex flex-col h-full bg-[#fafafa] p-3 sm:p-4 rounded-[24px] sm:rounded-[40px] border border-brand/5 hover:bg-white hover:shadow-2xl transition-all duration-500 active:scale-[0.98]"
               >
                 <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden mb-6 shadow-sm">
                   <img 
@@ -188,7 +188,7 @@ export default function Store() {
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6">
                     <button 
                       onClick={() => addToCart(product)}
-                      className="w-full py-5 bg-white text-black rounded-2xl font-bold font-display shadow-2xl flex items-center justify-center gap-3 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 hover:bg-brand hover:text-white active:scale-95"
+                      className="w-full py-4 md:py-5 bg-white text-black rounded-2xl font-bold font-display shadow-2xl flex items-center justify-center gap-3 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 hover:bg-brand hover:text-white active:scale-95 text-sm md:text-base"
                     >
                       <ShoppingCart className="w-5 h-5" />
                       Add to Cart
@@ -253,7 +253,7 @@ export default function Store() {
               className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col"
             >
               {/* Cart Header */}
-              <div className="p-8 border-b border-brand/5 flex items-center justify-between">
+              <div className="p-4 sm:p-6 md:p-8 border-b border-brand/5 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-brand/10 rounded-2xl flex items-center justify-center text-brand">
                     <ShoppingBag className="w-6 h-6" />
@@ -272,7 +272,7 @@ export default function Store() {
               </div>
 
               {/* Cart Items */}
-              <div className="flex-grow overflow-y-auto p-8 custom-scrollbar">
+              <div className="flex-grow overflow-y-auto p-4 sm:p-6 md:p-8 custom-scrollbar">
                 {isSuccess ? (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -353,7 +353,7 @@ export default function Store() {
 
               {/* Cart Footer / Checkout */}
               {!isSuccess && cart.length > 0 && (
-                <div className="p-8 border-t border-brand/5 bg-white space-y-6">
+                <div className="p-4 sm:p-6 md:p-8 border-t border-brand/5 bg-white space-y-6">
                   <div className="space-y-3">
                     <div className="flex justify-between text-text-muted font-medium">
                       <span>Subtotal</span>

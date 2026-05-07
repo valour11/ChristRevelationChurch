@@ -96,9 +96,9 @@ export default function PrayerRequest() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
-          >
-            How Can We <span className="text-brand">Pray</span> For You?
+              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+            >
+              How Can We <span className="text-brand">Pray</span> For You?
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -164,7 +164,7 @@ export default function PrayerRequest() {
                 initial={{ opacity: 1, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="space-y-12"
+                className="space-y-8 md:space-y-12"
               >
                
                 <div>
@@ -196,7 +196,7 @@ export default function PrayerRequest() {
                   </div>
                 </div>
 
-                <div className="p-10 bg-black rounded-[40px] text-white relative overflow-hidden group">
+                <div className="p-6 md:p-10 bg-black rounded-[32px] md:rounded-[40px] text-white relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand/20 blur-3xl rounded-full" />
                   <div className="relative z-10">
                     <h5 className="text-xl font-display font-bold mb-4 flex items-center gap-3">
@@ -214,7 +214,7 @@ export default function PrayerRequest() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="lg:w-3/5 w-full bg-white p-12 md:p-16 rounded-[48px] card-shadow border border-brand/5 relative"
+              className="lg:w-3/5 w-full bg-white p-6 sm:p-8 md:p-16 rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 relative"
             >
               <AnimatePresence mode="wait">
                 {!isSuccess ? (
@@ -224,9 +224,9 @@ export default function PrayerRequest() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     ref={formRef}
                     onSubmit={handleSubmit}
-                    className="space-y-8"
+                    className="space-y-6 md:space-y-8"
                   >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
                       <div className="space-y-3">
                         <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">First Name</label>
                         <input 
@@ -309,7 +309,7 @@ export default function PrayerRequest() {
                     <button 
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-brand/30 flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full py-5 md:py-6 bg-brand hover:bg-brand-dark text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-brand/30 flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>Processing... <Loader2 className="w-5 h-5 animate-spin" /></>

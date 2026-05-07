@@ -63,9 +63,9 @@ export default function Contact() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
-          >
-            Get In <span className="text-brand">Touch</span>
+              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+            >
+              Get In <span className="text-brand">Touch</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -81,7 +81,7 @@ export default function Contact() {
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 md:gap-16 items-start">
               {/* Contact Info - Left Column */}
               <div className="lg:col-span-2 space-y-12">
                 <motion.div
@@ -89,9 +89,9 @@ export default function Contact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-display font-bold text-black mb-10 leading-tight">Global <br />Contact Centers</h2>
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-black mb-6 md:mb-10 leading-tight">Global <br />Contact Centers</h2>
                   
-                  <div className="space-y-10">
+                  <div className="space-y-6 md:space-y-10">
                     <div className="flex gap-6 group">
                       <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center shrink-0 text-brand group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                         <Mail className="w-6 h-6" />
@@ -131,9 +131,9 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="pt-12 border-t border-brand/5"
+                  className="pt-8 md:pt-12 border-t border-brand/5"
                 >
-                  <h4 className="text-xs font-bold text-black uppercase tracking-[0.2em] mb-8">Apostolic Socials</h4>
+                  <h4 className="text-xs font-bold text-black uppercase tracking-[0.2em] mb-6 md:mb-8">Apostolic Socials</h4>
                   <div className="flex gap-4">
                     {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
                       <a key={i} href="#" className="w-14 h-14 rounded-2xl bg-[#fafafa] flex items-center justify-center text-text-muted hover:bg-black hover:text-white transition-all duration-300 group shadow-sm">
@@ -149,7 +149,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="lg:col-span-3 bg-white p-12 md:p-16 rounded-[48px] card-shadow border border-brand/5"
+                className="lg:col-span-3 bg-white p-6 sm:p-8 md:p-16 rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5"
               >
                 <AnimatePresence mode="wait">
                   {!isSuccess ? (
@@ -221,7 +221,7 @@ export default function Contact() {
                       <button 
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-6 bg-black hover:bg-brand text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-black/10 flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full py-5 md:py-6 bg-black hover:bg-brand text-white rounded-[24px] font-bold font-display transition-all shadow-2xl shadow-black/10 flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>Sending... <Loader2 className="w-5 h-5 animate-spin" /></>

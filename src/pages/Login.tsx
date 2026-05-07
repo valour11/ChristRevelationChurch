@@ -19,7 +19,7 @@ export default function Login() {
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-xl bg-white p-12 md:p-16 rounded-[48px] card-shadow border border-brand/5 relative z-10"
+        className="w-full max-w-xl bg-white p-6 sm:p-8 md:p-16 rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 relative z-10"
       >
         <div className="text-center mb-12">
           <Link to="/" className="inline-flex items-center gap-3 mb-10 group">
