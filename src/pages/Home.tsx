@@ -137,7 +137,7 @@ export default function Home() {
             >
               <Link
                 to="/partnership"
-                className="group px-6 py-4 md:px-6 md:py-3 bg-[#000080] hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
+                className="group px-6 py-4 md:px-6 md:py-3 bg-[#000080] hover:bg-[#000080]/80 text-white rounded-2xl font-bold transition-all shadow-2xl shadow-[#000080]/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
