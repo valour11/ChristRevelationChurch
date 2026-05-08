@@ -117,7 +117,7 @@ export default function Home() {
             >
               Christ's Revelation{' '}
               <br className="hidden sm:block" />
-              <span className="text-brand">International Church</span>
+              <span className="text-[#000080]">International Church</span>
             </motion.h1>
 
             <motion.p
@@ -137,7 +137,7 @@ export default function Home() {
             >
               <Link
                 to="/partnership"
-                className="group px-6 py-4 md:px-6 md:py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
+                className="group px-6 py-4 md:px-6 md:py-3 bg-[#000080] hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -441,7 +441,7 @@ export default function Home() {
       </section>
 
       {/* Partnership CTA */}
-      <section className="py-20 md:py-32 relative overflow-hidden bg-brand">
+      <section className="py-10 md:py-15 relative overflow-hidden bg-[#000080]">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(0,0,0,0.1),transparent)]" />

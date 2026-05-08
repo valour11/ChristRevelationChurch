@@ -67,7 +67,7 @@ export default function Navbar() {
           <div className="ml-4 pl-4 border-l border-brand/10">
             <Link
               to="/partnership"
-              className="px-6 py-2.5 bg-brand hover:bg-brand-dark text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-brand/20 active:scale-95"
+              className="px-6 py-2.5 bg-[#000080] hover:bg-brand-dark text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-brand/20 active:scale-95"
             >
               Partner With Us
             </Link>
