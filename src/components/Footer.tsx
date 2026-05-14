@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import logo from '../assets/logo.jpeg';
 
 export default function Footer() {

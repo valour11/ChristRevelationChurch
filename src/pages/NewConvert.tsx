@@ -13,8 +13,7 @@ import {
   CheckCircle,
   Download,
   FileText,
-  ArrowRight,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import foundationCourse from "../assets/FOUNDATION CLASS COURSE (1).docx";

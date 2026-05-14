@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { ShoppingCart, Search, Filter, ShoppingBag, Sparkles, Star, X, Plus, Minus, Trash2, CreditCard, Loader2, CheckCircle, Send } from 'lucide-react';
+import { ShoppingCart, Search, Filter, ShoppingBag, Star, X, Plus, Minus, Trash2, CreditCard, Loader2, CheckCircle, Send } from 'lucide-react';
 
 const products = [
   {

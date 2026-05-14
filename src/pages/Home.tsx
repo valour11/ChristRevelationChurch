@@ -5,9 +5,7 @@ import {
   BookOpen,
   MessageSquare,
   Users,
-  ShoppingBag,
   Lightbulb,
-  Mail,
   ArrowRight,
   Quote,
   Facebook,
@@ -51,27 +49,6 @@ const programs = [
     link: "/contact",
     color: "bg-green-50 text-green-600"
   },
-  // {
-  //   title: "Store & Resources",
-  //   description: "Access books, teachings, and resources to deepen your spiritual understanding and growth.",
-  //   icon: <ShoppingBag className="w-6 h-6" />,
-  //   link: "/store",
-  //   color: "bg-amber-50 text-amber-600"
-  // },
-  // {
-  //   title: "Spiritual Insights",
-  //   description: "Receive daily devotionals and teachings to inspire and strengthen your faith journey.",
-  //   icon: <Lightbulb className="w-6 h-6" />,
-  //   link: "/",
-  //   color: "bg-rose-50 text-rose-600"
-  // },
-  // {
-  //   title: "Contact Us",
-  //   description: "Get in touch with our team for inquiries, partnerships, or general information.",
-  //   icon: <Mail className="w-6 h-6" />,
-  //   link: "/contact",
-  //   color: "bg-indigo-50 text-indigo-600"
-  // }
 ];
 
 const testimonials = [
@@ -125,15 +102,7 @@ export default function Home() {
 
         <div className="container mx-auto px-6 relative z-10 flex flex-col justify-center items-center">
           <div className="max-w-4xl flex justify-center items-center flex-col">
-            {/* <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 20 }}
-              transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
-            >
-              <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Spiritual Excellence & Leadership</span>
-            </motion.div> */}
+            
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -223,14 +192,6 @@ export default function Home() {
                 <p className="text-text-muted mb-10 leading-relaxed font-medium">
                   {program.description}
                 </p>
-                {/* <div className="mt-auto">
-                  <Link 
-                    to={program.link} 
-                    className="inline-flex items-center gap-2 text-brand font-bold py-2 border-b-2 border-transparent hover:border-brand transition-all group/link"
-                  >
-                    Learn More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                </div> */}
               </motion.div>
             ))}
           </div>
@@ -401,12 +362,6 @@ export default function Home() {
                 </p>
               </div>
               <div className="mt-12 flex items-center gap-6">
-                {/* <Link
-                  to="/about"
-                  className="px-10 py-5 bg-black text-white rounded-2xl font-bold hover:bg-brand transition-all shadow-xl shadow-black/10 active:scale-95"
-                >
-                  Full Biography
-                </Link> */}
                 <div className="h-12 w-[1px] bg-brand/20" />
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-text-muted uppercase tracking-widest">Connect</span>

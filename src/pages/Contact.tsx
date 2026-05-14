@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { Mail, Phone, MapPin, Send, Facebook, Twitter, Instagram, Youtube, Sparkles, Loader2, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Facebook, Youtube, Loader2, CheckCircle } from 'lucide-react';
 import heroImg3 from '../assets/hero-img3.png';
 
 export default function Contact() {
@@ -83,9 +83,9 @@ export default function Contact() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
-            >
-              Get In <span className="text-brand">Touch</span>
+            className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+          >
+            Get In <span className="text-brand">Touch</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -155,11 +155,22 @@ export default function Contact() {
                 >
                   <h4 className="text-xs font-bold text-black uppercase tracking-[0.2em] mb-6 md:mb-8">Apostolic Socials</h4>
                   <div className="flex gap-4">
-                    {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                      <a key={i} href="#" className="w-14 h-14 rounded-2xl bg-[#fafafa] flex items-center justify-center text-text-muted hover:bg-black hover:text-white transition-all duration-300 group shadow-sm">
-                        <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                      </a>
-                    ))}
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61555677206385&mibextid=ZbWKwL"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 rounded-2xl bg-[#fafafa] flex items-center justify-center text-text-muted hover:bg-black hover:text-white transition-all duration-300 group shadow-sm"
+                    >
+                      <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    </a>
+                    <a
+                      href="https://youtube.com/@apostlegodwinbantar?si=8aUrpJCLHljxW-tA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 rounded-2xl bg-[#fafafa] flex items-center justify-center text-text-muted hover:bg-black hover:text-white transition-all duration-300 group shadow-sm"
+                    >
+                      <Youtube className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    </a>
                   </div>
                 </motion.div>
               </div>
@@ -169,7 +180,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="lg:col-span-3 bg-white p-6 sm:p-8 md:p-16 rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5"
+                className="lg:col-span-3 bg-[#f7f7f7] p-6 sm:p-8 md:p-16 rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5"
               >
                 <AnimatePresence mode="wait">
                   {!isSuccess ? (
@@ -181,6 +192,10 @@ export default function Contact() {
                       onSubmit={handleSubmit}
                       className="space-y-8"
                     >
+                      <div className="mb-10">
+                        <h3 className="text-2xl md:text-3xl font-display font-bold text-black mb-3">Send Us a Message</h3>
+                        <p className="text-text-muted font-medium">We'd love to hear from you. Fill out the form and we'll respond promptly.</p>
+                      </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                         <div className="space-y-3">
                           <label className="text-xs font-bold text-black uppercase tracking-[0.2em] ml-1">Full Name</label>

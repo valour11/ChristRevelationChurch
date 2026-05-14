@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Users, Target, Heart, Shield, Star, Sparkles, MapPin, Mail } from 'lucide-react';
+import { Users, Target, Heart, Shield, Star, MapPin } from 'lucide-react';
 import SEO from '../components/SEO';
 import logo from "../assets/logo.jpeg";
 import heroImg from "../assets/hero-img3.png";
@@ -55,64 +55,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
-          >
-            <Sparkles className="w-3 h-3 text-brand" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">About Us</span>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
-          >
-            The History of <span className="text-brand">Our Church</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-white/40 max-w-2xl mx-auto font-medium"
-          >
-            Discover the story of Christ's Revelation International Church, an apostolic ministry founded by Apostle Godwin Bantar. Learn about our mission, vision, and impact.
-          </motion.p>
-        </div>
-      </section> */}
-
-      {/* <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
-          >
-            <Sparkles className="w-3 h-3 text-brand" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">About Us</span>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
-          >
-            The History of <span className="text-brand">Our Church</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-white/40 max-w-2xl mx-auto font-medium"
-          >
-            Discover the story of Christ's Revelation International Church, an apostolic ministry founded by Apostle Godwin Bantar. Learn about our mission, vision, and impact.
-          </motion.p>
-        </div>
-      </section> */}
 
       {/* Biography Section */}
       <section className="py-16 md:py-32 px-4 sm:px-6 lg:px-24 bg-white relative">

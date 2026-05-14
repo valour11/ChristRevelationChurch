@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
+import { CheckCircle2, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import schoolImg from "../assets/bibleSchool.jpeg";
 import { Link } from 'react-router-dom';
@@ -86,7 +86,6 @@ export default function School() {
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-8xl mt-10 px-4 sm:px-6 lg:px-24 text-center">
-            
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -121,33 +120,6 @@ export default function School() {
           </div>
         </div>
       </section>
-
-      {/* Stats */}
-      {/* <section className="py-20 relative -mt-10 z-10">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { label: "Students", value: "5000+" },
-              { label: "Courses", value: "50+" },
-              { label: "Countries", value: "30+" },
-              { label: "Graduates", value: "2000+" }
-            ].map((stat, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 bg-white rounded-3xl card-shadow border border-brand/5 text-center flex flex-col justify-center"
-              >
-                <div className="text-4xl font-display font-bold text-brand mb-2">{stat.value}</div>
-                <div className="text-text-muted text-[10px] uppercase tracking-[0.2em] font-bold">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
         {/* About School of ministry */}
       <section className="py-14 px-4 sm:px-6 lg:px-24 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">

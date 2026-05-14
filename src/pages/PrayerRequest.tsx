@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle, ChevronLeft, ChevronRight, Mail } from 'lucide-react';
+import { Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import heroImg3 from '../assets/hero-img3.png';
 import prayer1 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.39 PM.jpeg';
 import prayer2 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.41 PM.jpeg';
@@ -124,42 +124,6 @@ export default function PrayerRequest() {
       </section>
 
 
-      {/* <section className="relative pt-32 pb-24 bg-black text-white overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-30">
-          <img 
-            src={heroImg3}
-            alt="Prayer Background" 
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm shadow-glow"
-          >
-            <Heart className="w-3 h-3 text-brand" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Intercession</span>
-          </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
-            >
-              How Can We <span className="text-brand">Pray</span> For You?
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-white/50 max-w-2xl mx-auto font-medium leading-relaxed"
-          >
-            Our dedicated prayer team is ready to stand in faith with you. Your requests are handled with divine care and absolute confidentiality.
-          </motion.p>
-        </div>
-      </section> */}
 
 
       {/* image slider */}

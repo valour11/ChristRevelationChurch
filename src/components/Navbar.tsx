@@ -54,17 +54,24 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 hover:bg-brand/5 hover:text-brand ${
-                scrolled ? 'text-text-muted' : 'text-white/80 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+                  isActive
+                    ? 'bg-brand/10 text-brand'
+                    : scrolled
+                      ? 'text-text-muted hover:bg-brand/5 hover:text-brand'
+                      : 'text-white/80 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
           <div className="ml-4 pl-4 border-l border-brand/10">
             <Link
               to="/partnership"
@@ -102,7 +109,11 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="flex items-center justify-between text-base font-semibold text-text-foreground hover:text-brand transition-colors p-4 rounded-2xl hover:bg-brand/5"
+                  className={`flex items-center justify-between text-base font-semibold transition-colors p-4 rounded-2xl ${
+                    location.pathname === link.path
+                      ? 'text-brand bg-brand/10'
+                      : 'text-text-foreground hover:text-brand hover:bg-brand/5'
+                  }`}
                 >
                   {link.name}
                   <ChevronRight className="w-4 h-4 text-brand/40" />

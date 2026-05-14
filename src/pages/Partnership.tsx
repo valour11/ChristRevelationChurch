@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { Handshake, Globe, Users, Heart, ShieldCheck, MessageSquare, PhoneCall, Camera, Send, Sparkles, CheckCircle2, Loader2, CheckCircle } from 'lucide-react';
+import { Handshake, Globe, ShieldCheck, MessageSquare, PhoneCall, Camera, Send, Sparkles, CheckCircle2, Loader2, CheckCircle } from 'lucide-react';
 import heroImg3 from '../assets/hero-img3.png';
 
 const cameroonLevels = [
@@ -449,26 +449,6 @@ export default function Partnership() {
                         ></textarea>
                       </div>
                     </div>
-
-                    {/* <div className="space-y-6">
-                      <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Picture for Intercession</label>
-                      <div 
-                        onClick={() => fileInputRef.current?.click()}
-                        className={`border-2 border-dashed rounded-[32px] p-12 text-center transition-all cursor-pointer group ${formData.picture ? 'border-brand bg-brand/5' : 'border-white/10 hover:border-brand hover:bg-brand/5'}`}
-                      >
-                        <Camera className={`w-12 h-12 mx-auto mb-4 transition-all group-hover:scale-110 ${formData.picture ? 'text-brand' : 'text-white/20 group-hover:text-brand'}`} />
-                        <p className="text-white/40 font-medium">
-                          {formData.picture ? `Selected: ${formData.picture.name}` : 'Click or drag to upload your picture for the place of prayer'}
-                        </p>
-                        <input 
-                          type="file" 
-                          ref={fileInputRef}
-                          onChange={handleFileChange}
-                          className="hidden" 
-                          accept="image/*"
-                        />
-                      </div>
-                    </div> */}
 
                     <button 
                       type="submit"
