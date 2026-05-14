@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle, Download, FileText } from 'lucide-react';
+import { CheckCircle2, Clock, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import schoolImg from "../assets/bibleSchool.jpeg";
-import foundationCourse from "../assets/FOUNDATION CLASS COURSE (1).docx";
 import { Link } from 'react-router-dom';
 
 export default function School() {
@@ -24,16 +23,27 @@ export default function School() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API Call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Enrollment Submitted:', formData);
+      await fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'Enrollments',
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          level: formData.level,
+          reason: formData.reason
+        })
+      });
       setIsSuccess(true);
-      // Don't reset immediately so user sees success
     } catch (error) {
       console.error('Enrollment failed:', error);
       alert('Something went wrong. Please try again.');
@@ -75,15 +85,7 @@ export default function School() {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-8xl mt-10 px-4 sm:px-6 lg:px-24">
-            {/* <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
-            >
-              <GraduationCap className="w-3 h-3 text-brand" />
-              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">School Of Ministry</span>
-            </motion.div> */}
+          <div className="max-w-8xl mt-10 px-4 sm:px-6 lg:px-24 text-center">
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -98,7 +100,7 @@ export default function School() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-base sm:text-xl text-white/60 mb-8 md:mb-12 max-w-2xl leading-relaxed font-medium"
+              className="text-base sm:text-xl text-white/60 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
             >
               Equipping the next generation of spiritual leaders with biblical wisdom, practical skills, and apostolic insight for global impact.
             </motion.p>
@@ -108,7 +110,7 @@ export default function School() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               onClick={() => setIsEnrollModalOpen(true)}
-              className="px-10 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center gap-3 mb-6"
+              className="px-10 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center gap-3 mb-6 mx-auto"
             >
               <Link to="#"
                 className='cursor-pointer flex w-full justify-center items-center gap-3'
@@ -121,7 +123,7 @@ export default function School() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 relative -mt-10 z-10">
+      {/* <section className="py-20 relative -mt-10 z-10">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -144,14 +146,14 @@ export default function School() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
         {/* About School of ministry */}
-      <section className="py-8 px-4 sm:px-6 lg:px-24 bg-[#fafafa] relative overflow-hidden">
+      <section className="py-14 px-4 sm:px-6 lg:px-24 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            {/* <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Pathway</span> */}
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">About School of Ministry</h2>
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">About</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">About <span className='text-brand'>CRISOM</span></h2>
             <p className="text-text-muted text-lg font-medium max-w-4xl mx-auto">May the peace of the Lord be with you, beloved in Christ Jesus. You are welcome to <strong className="text-brand">Christ's Revelation School of Ministry</strong>. We are the Discipleship department of Christ's Revelation Int'l Church, the objective of this school of ministry is to raise a generation of men and women who carry an unusual passion for God, people with undivided focus on God and for his purpose in the earth. God gave this mandate to his servant, the apostle over this commission and assured him in his own word "no one who passes through your hands shall be the same". It was back in 2013 when he was alone with the Lord in the wilderness seeking his face to get his mind about his generation, in an encounter, God handed him this vocation and many other things which may be personal, still about his generation.</p>
           </div>
           
@@ -187,41 +189,6 @@ export default function School() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Foundation Class Course Download */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto bg-gradient-to-br from-brand/5 to-brand/10 rounded-[48px] p-12 md:p-16 border border-brand/10 text-center relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
-            
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-brand rounded-[24px] flex items-center justify-center mx-auto mb-8 shadow-xl shadow-brand/20">
-                <FileText className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">
-                Foundation Class Course
-              </h3>
-              <p className="text-text-muted text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
-                Download the Foundation Class Course to begin your journey in the Christ's Revelation School of Ministry. This comprehensive course will establish you in the foundational truths of the faith.
-              </p>
-              <a 
-                href={foundationCourse} 
-                download
-                className="inline-flex items-center gap-3 px-10 py-5 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/20 active:scale-95"
-              >
-                <Download className="w-5 h-5" />
-                Download Now
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
 

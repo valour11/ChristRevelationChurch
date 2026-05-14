@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
 import { Mail, Phone, MapPin, Send, Facebook, Twitter, Instagram, Youtube, Sparkles, Loader2, CheckCircle } from 'lucide-react';
+import heroImg3 from '../assets/hero-img3.png';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,14 +21,25 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API Call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Contact Message Submitted:', formData);
+      await fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'Contacts',
+          fullName: formData.fullName,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
       setIsSuccess(true);
       setFormData({
         fullName: '',
@@ -50,6 +62,14 @@ export default function Contact() {
       />
       {/* Hero Header */}
       <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImg3}
+            alt="Contact Background"
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div

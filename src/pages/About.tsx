@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Users, Target, Heart, Shield, Star, Sparkles, MapPin, Mail } from 'lucide-react';
 import SEO from '../components/SEO';
 import logo from "../assets/logo.jpeg";
+import heroImg from "../assets/hero-img3.png";
 
 export default function About() {
   return (
@@ -11,49 +12,51 @@ export default function About() {
         description="Learn about Christ's Revelation International Church, an apostolic ministry founded by Apostle Godwin Bantar. Discover our mission, vision, and impact."
       />
       {/* Hero Section */}
-      {/* <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black text-white pt-20">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-black text-white pt-20">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=2000" 
-            alt="About Background" 
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-            referrerPolicy="no-referrer"
+          <img
+            src={heroImg}
+            alt="New Beginning"
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center lg:text-left">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm mx-auto lg:mx-0"
-          >
-            <Sparkles className="w-3 h-3 text-brand" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Our History & Vision</span>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight tracking-tight"
-          >
-            About Apostle <br className="hidden md:block" />
-            Godwin <span className="text-brand">BANTAR</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-white/60 max-w-2xl leading-relaxed font-medium"
-          >
-            A life dedicated to spiritual transformation, leadership development, and empowering believers worldwide to walk in their divine purpose.
-          </motion.p>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
+            >
+              <Heart className="w-3 h-3 text-brand" />
+              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">About Us</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6 leading-tight tracking-tight"
+            >
+              The History of{' '}
+              <span className="text-brand">Our Church</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-white/60 mb-8 max-w-2xl mx-auto leading-relaxed font-medium"
+            >
+              Discover the story of Christ's Revelation International Church, an apostolic ministry founded by Apostle Godwin Bantar. Learn about our mission, vision, and impact.
+
+            </motion.p>
+          </div>
         </div>
-      </section> */}
-      <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
+      </section>
+
+      {/* <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
@@ -80,7 +83,36 @@ export default function About() {
             Discover the story of Christ's Revelation International Church, an apostolic ministry founded by Apostle Godwin Bantar. Learn about our mission, vision, and impact.
           </motion.p>
         </div>
-      </section>
+      </section> */}
+
+      {/* <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
+          >
+            <Sparkles className="w-3 h-3 text-brand" />
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">About Us</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+          >
+            The History of <span className="text-brand">Our Church</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-white/40 max-w-2xl mx-auto font-medium"
+          >
+            Discover the story of Christ's Revelation International Church, an apostolic ministry founded by Apostle Godwin Bantar. Learn about our mission, vision, and impact.
+          </motion.p>
+        </div>
+      </section> */}
 
       {/* Biography Section */}
       <section className="py-16 md:py-32 px-4 sm:px-6 lg:px-24 bg-white relative">
@@ -199,7 +231,6 @@ export default function About() {
               { title: "Righteousness", desc: "Standing firm in the righteousness of Christ and His Word.", icon: <Star className="w-6 h-6" /> },
               { title: "Unity", desc: "Walking together in the unity of the Spirit and the bond of peace.", icon: <Users className="w-6 h-6" /> },
               { title: "Humility", desc: "Serving God and humanity with a humble and contrite heart.", icon: <Target className="w-6 h-6" /> },
-              { title: "Generosity", desc: "Giving freely as we have received from the Lord.", icon: <Heart className="w-6 h-6" /> }
             ].map((value, i) => (
               <motion.div
                 key={i}

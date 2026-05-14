@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageSquare, Send, ShieldCheck, Heart, Sparkles, Loader2, CheckCircle, ChevronLeft, ChevronRight, Mail } from 'lucide-react';
+import heroImg3 from '../assets/hero-img3.png';
 import prayer1 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.39 PM.jpeg';
 import prayer2 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.41 PM.jpeg';
 import prayer3 from '../assets/prayer-img/WhatsApp Image 2026-04-19 at 2.33.49 PM.jpeg';
@@ -43,14 +44,26 @@ export default function PrayerRequest() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API Call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Prayer Request Submitted:', formData);
+      await fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'PrayerRequests',
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          category: formData.category,
+          request: formData.request
+        })
+      });
       setIsSuccess(true);
       setFormData({
         firstName: '',
@@ -73,13 +86,50 @@ export default function PrayerRequest() {
         description="Submit your prayer requests and join our community of intercessors. We believe in the power of prayer to transform lives."
       />
       {/* Hero / Header */}
-      <section className="relative pt-32 pb-24 bg-black text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImg3}
+            alt="Contact Background"
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        </div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand/10 blur-[120px] rounded-full translate-x-1/2" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-8 backdrop-blur-sm"
+          >
+            <Heart className="w-3 h-3 text-brand" />
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand">Prayer Requests</span>
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+            >
+              How Can We <span className="text-brand">Pray</span> For You?
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-white/40 max-w-2xl mx-auto font-medium"
+          >
+            Our dedicated prayer team is ready to stand in faith with you. Your requests are handled with divine care and absolute confidentiality.
+          </motion.p>
+        </div>
+      </section>
+
+
+      {/* <section className="relative pt-32 pb-24 bg-black text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-30">
           <img 
-            src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&q=80&w=2000" 
+            src={heroImg3}
             alt="Prayer Background" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         </div>
@@ -109,7 +159,9 @@ export default function PrayerRequest() {
             Our dedicated prayer team is ready to stand in faith with you. Your requests are handled with divine care and absolute confidentiality.
           </motion.p>
         </div>
-      </section>
+      </section> */}
+
+
       {/* image slider */}
       <section className="h-[40vh]">
          <div className="relative group overflow-hidden aspect-[4/3] bg-black/5 border border-brand/10 shadow-2xl">

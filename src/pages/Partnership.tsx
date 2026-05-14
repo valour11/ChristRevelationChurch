@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
 import { Handshake, Globe, Users, Heart, ShieldCheck, MessageSquare, PhoneCall, Camera, Send, Sparkles, CheckCircle2, Loader2, CheckCircle } from 'lucide-react';
+import heroImg3 from '../assets/hero-img3.png';
 
 const cameroonLevels = [
   { name: "SILVER", range: "5,000 to 20,000 fcfa", registration: "5,000 fcfa" },
@@ -53,16 +54,42 @@ export default function Partnership() {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API Call
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Form Submitted:', formData);
+      let pictureBase64 = '';
+      if (formData.picture) {
+        pictureBase64 = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.readAsDataURL(formData.picture as File);
+        });
+      }
+
+      await fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'Partnerships',
+          fullName: formData.fullName,
+          email: formData.email,
+          countryOfOrigin: formData.countryOfOrigin,
+          countryOfResidence: formData.countryOfResidence,
+          townOrRegion: formData.townOrRegion,
+          contactNumber: formData.contactNumber,
+          occupation: formData.occupation,
+          monthlyPledge: formData.monthlyPledge,
+          prayerPoint1: formData.prayerPoint1,
+          prayerPoint2: formData.prayerPoint2,
+          pictureBase64: pictureBase64
+        })
+      });
       setIsSuccess(true);
-      // Reset form after success
       setFormData({
         fullName: '',
         email: '',
@@ -93,12 +120,11 @@ export default function Partnership() {
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black text-white pt-30">
         <div className="absolute inset-0 z-0 text-white">
-          {/* <img 
-            src="https://images.unsplash.com/photo-1559027615-cd2d71242b5e?auto=format&fit=crop&q=80&w=2000" 
+          <img 
+            src={heroImg3} 
             alt="Partnership" 
             className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-            referrerPolicy="no-referrer"
-          /> */}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
         
@@ -117,8 +143,7 @@ export default function Partnership() {
               animate={{ opacity: 1, y: 0 }}
               className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             >
-              Christ’s Revelation{' '}
-              <br className="hidden sm:block" />International Church
+              Become a Kingdom <span className="text-brand">Partner</span>
             </motion.h1>
             
             <motion.p 
@@ -425,7 +450,7 @@ export default function Partnership() {
                       </div>
                     </div>
 
-                    <div className="space-y-6">
+                    {/* <div className="space-y-6">
                       <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Picture for Intercession</label>
                       <div 
                         onClick={() => fileInputRef.current?.click()}
@@ -443,7 +468,7 @@ export default function Partnership() {
                           accept="image/*"
                         />
                       </div>
-                    </div>
+                    </div> */}
 
                     <button 
                       type="submit"

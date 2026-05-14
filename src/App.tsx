@@ -15,6 +15,7 @@ import PrayerRequest from './pages/PrayerRequest';
 import Partnership from './pages/Partnership';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import NewConvert from './pages/NewConvert';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/prayer-request" element={<PrayerRequest />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/new-convert" element={<NewConvert />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </main>

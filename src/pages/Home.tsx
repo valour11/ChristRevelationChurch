@@ -15,11 +15,19 @@ import {
   Clock,
   Sun,
   Moon,
-  ExternalLink
+  ExternalLink,
+  Calendar,
+  Heart,
+  Shield,
+  Sparkles
 } from 'lucide-react';
 import bantar from "../assets/bantar.jpg";
-import heroimg from "../assets/hero-img.jpeg";
+import heroimg from "../assets/hero-img2.png";
 import prayerWatch from "../assets/daily-prayer-watch.jpeg";
+import careerBreakthrough from "../assets/testimony/career-breakthrough.jpeg";
+import anointingOil from "../assets/testimony/annointing-oil.jpeg";
+import deliveredFromAlcohol from "../assets/testimony/delivered-from-alchohol.png";
+import intlJob from "../assets/testimony/intl-job.png";
 
 const programs = [
   {
@@ -43,39 +51,57 @@ const programs = [
     link: "/contact",
     color: "bg-green-50 text-green-600"
   },
-  {
-    title: "Store & Resources",
-    description: "Access books, teachings, and resources to deepen your spiritual understanding and growth.",
-    icon: <ShoppingBag className="w-6 h-6" />,
-    link: "/store",
-    color: "bg-amber-50 text-amber-600"
-  },
-  {
-    title: "Spiritual Insights",
-    description: "Receive daily devotionals and teachings to inspire and strengthen your faith journey.",
-    icon: <Lightbulb className="w-6 h-6" />,
-    link: "/",
-    color: "bg-rose-50 text-rose-600"
-  },
-  {
-    title: "Contact Us",
-    description: "Get in touch with our team for inquiries, partnerships, or general information.",
-    icon: <Mail className="w-6 h-6" />,
-    link: "/contact",
-    color: "bg-indigo-50 text-indigo-600"
-  }
+  // {
+  //   title: "Store & Resources",
+  //   description: "Access books, teachings, and resources to deepen your spiritual understanding and growth.",
+  //   icon: <ShoppingBag className="w-6 h-6" />,
+  //   link: "/store",
+  //   color: "bg-amber-50 text-amber-600"
+  // },
+  // {
+  //   title: "Spiritual Insights",
+  //   description: "Receive daily devotionals and teachings to inspire and strengthen your faith journey.",
+  //   icon: <Lightbulb className="w-6 h-6" />,
+  //   link: "/",
+  //   color: "bg-rose-50 text-rose-600"
+  // },
+  // {
+  //   title: "Contact Us",
+  //   description: "Get in touch with our team for inquiries, partnerships, or general information.",
+  //   icon: <Mail className="w-6 h-6" />,
+  //   link: "/contact",
+  //   color: "bg-indigo-50 text-indigo-600"
+  // }
 ];
 
 const testimonials = [
   {
-    name: "John Doe",
-    role: "Community Member",
-    content: "The leadership school has completely transformed my perspective on ministry and service."
+    name: "Tshepiso Clifford",
+    location: "South Africa",
+    category: "Career Breakthrough",
+    content: "After years of joblessness, I reached out to the ministry. The man of God prayed for me and prophesied about a job that was coming. In a few days, a very big company called me and offered a job I never expected.",
+    image: careerBreakthrough
   },
   {
-    name: "Sarah Smith",
-    role: "Partner",
-    content: "Being part of this ministry has been a blessing. The spiritual insights are truly life-changing."
+    name: "Madame Pamela",
+    location: "",
+    category: "Anointing Oil",
+    content: "I was suffering deadly conspiracies, financial poverty and my husband was addicted to drunkenness. The man of God prayed for me and blessed my oil. Things started turning around — my husband stopped drinking, I was delivered from conspiracies, and my finances are stabilizing.",
+    image: anointingOil
+  },
+  {
+    name: "Madame Wandiko Juliet",
+    location: "",
+    category: "Delivered from Alcohol",
+    content: "I couldn't pass a day without drinking beer. But when I started listening to the messages of the man of God, the urge for alcohol was totally killed. I go for months now without even thinking about it.",
+    image: deliveredFromAlcohol
+  },
+  {
+    name: "Karen Lusaka",
+    location: "Zambia",
+    category: "International Job",
+    content: "After the man of God prayed for me, I was delivered from stagnation, spiritual husband and joblessness. I received an open door to travel to and work in Dubai.",
+    image: intlJob
   }
 ];
 
@@ -117,7 +143,7 @@ export default function Home() {
             >
               Christ's Revelation{' '}
               <br className="hidden sm:block" />
-              <span className="text-[#000080]">International Church</span>
+              <span className="text-brand">International Church</span>
             </motion.h1>
 
             <motion.p
@@ -137,7 +163,7 @@ export default function Home() {
             >
               <Link
                 to="/partnership"
-                className="group px-6 py-4 md:px-6 md:py-3 bg-[#000080] hover:bg-[#000080]/80 text-white rounded-2xl font-bold transition-all shadow-2xl shadow-[#000080]/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
+                className="group px-6 py-4 md:px-6 md:py-3 bg-brand hover:bg-brand/80 text-white rounded-2xl font-bold transition-all shadow-2xl shadow-[#000080]/40 flex items-center justify-center gap-3 active:scale-95 w-full sm:w-auto"
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -414,24 +440,41 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="p-6 md:p-12 bg-white rounded-[32px] md:rounded-[40px] relative card-shadow border border-brand/5"
+                className="bg-white rounded-[32px] overflow-hidden card-shadow border border-brand/5 group hover:border-brand/20 transition-all"
               >
-                <Quote className="absolute top-6 right-6 md:top-12 md:right-12 w-10 h-10 md:w-16 md:h-16 text-brand/5" />
-                <div className="flex gap-1 mb-6 md:mb-8">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-2 h-2 rounded-full bg-brand/20" />
-                  ))}
-                </div>
-                <p className="text-xl text-black leading-relaxed mb-10 font-medium italic">
-                  "{t.content}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center text-brand font-bold">
-                    {t.name.charAt(0)}
+                <div className="relative h-56 md:h-64 overflow-hidden">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-6">
+                    <span className="px-4 py-1.5 bg-brand text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full">
+                      {t.category}
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-black">{t.name}</h4>
-                    <p className="text-xs text-brand font-bold uppercase tracking-widest">{t.role}</p>
+                </div>
+
+                <div className="p-6 md:p-10">
+                  <Quote className="w-8 h-8 text-brand/10 mb-4" />
+                  <p className="text-base md:text-lg text-black leading-relaxed mb-8 font-medium italic">
+                    "{t.content}"
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-brand/20 flex-shrink-0">
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-black">{t.name}</h4>
+                      {t.location && (
+                        <p className="text-xs text-text-muted font-medium">{t.location}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -440,8 +483,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Youth Ministry */}
+      <section className="py-20 md:px-32 px-6 bg-black overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-brand/5 blur-[100px] rounded-full translate-y-1/3 -translate-x-1/3" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Youth Ministry</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
+              Empowering the <span className="text-brand">Next Generation</span>
+            </h2>
+            <p className="text-white/50 text-lg font-medium max-w-2xl mx-auto leading-relaxed">
+              Building spiritual leaders, nurturing God-given talents, and fostering a vibrant youth community.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+            {[
+              { icon: <Calendar className="w-5 h-5" />, title: "Youth Thursday", desc: "Every first Thursday of the month." },
+              { icon: <Sparkles className="w-5 h-5" />, title: "Youth Week", desc: "Every Pentecost week." },
+              { icon: <Heart className="w-5 h-5" />, title: "Youth Evangelism", desc: "Every Sunday afternoon." },
+              { icon: <Lightbulb className="w-5 h-5" />, title: "Talents & Empowerment Workshop", desc: "Quarterly." },
+              { icon: <Users className="w-5 h-5" />, title: "Youth Retreat", desc: "Twice a year." },
+              { icon: <Shield className="w-5 h-5" />, title: "Mental Health & Guidance", desc: "Fight against depression, peer pressure, and waywardness." }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-[24px] hover:bg-white/10 hover:border-brand/30 transition-all"
+              >
+                <div className="w-11 h-11 rounded-xl bg-brand/15 flex items-center justify-center text-brand mb-4 group-hover:scale-110 transition-transform group-hover:bg-brand/25">
+                  {item.icon}
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center p-10 md:p-14 bg-gradient-to-br from-brand/15 to-brand/5 border border-brand/20 rounded-[32px] backdrop-blur-md"
+          >
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-5">
+              Need Guidance?
+            </h3>
+            <p className="text-white/60 mb-8 leading-relaxed text-base md:text-lg">
+              Are you suffering from any of the above? Do you doubt if you will make it as a youth who needs guidance? Register for the Youth Online Family and you will automatically be linked with a godly youth leader who will strengthen you.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-brand text-white rounded-2xl font-bold hover:bg-brand/70 transition-all active:scale-95 shadow-xl shadow-brand/30"
+            >
+              Register for Youth Online Family
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Partnership CTA */}
-      <section className="py-10 md:py-15 relative overflow-hidden bg-[#000080]">
+      <section className="py-10 md:py-15 relative overflow-hidden bg-brand">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(0,0,0,0.1),transparent)]" />

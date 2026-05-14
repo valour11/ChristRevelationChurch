@@ -5,10 +5,11 @@ import { Menu, X, ChevronRight } from 'lucide-react';
 import logo from '../assets/logo.jpeg';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
+  // { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about' },
   // { name: 'Programs', path: '/#programs' },
   // { name: 'Store', path: '/store' },
+  { name: 'New Convert', path: '/new-convert' },
   { name: 'School', path: '/school' },
   { name: 'Prayer Request', path: '/prayer-request' },
   { name: 'Partnership', path: '/partnership' },
@@ -45,7 +46,7 @@ export default function Navbar() {
             <span className={`font-display font-bold text-xl leading-tight tracking-tight ${scrolled ? 'text-black' : 'text-white'}`}>
               Christ's
             </span>
-            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium ${scrolled ? 'text-[#000080]' : 'text-brand-light'}`}>
+            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium ${scrolled ? 'text-brand' : 'text-brand-light'}`}>
               Revelation Int'l Church
             </span>
           </div>
@@ -67,7 +68,7 @@ export default function Navbar() {
           <div className="ml-4 pl-4 border-l border-brand/10">
             <Link
               to="/partnership"
-              className="px-6 py-2.5 bg-[#000080] hover:bg-[#000080]/80 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-[#000080]/20 active:scale-95"
+              className="px-6 py-2.5 bg-brand hover:bg-[#000080]/80 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-brand/20 active:scale-95"
             >
               Partner With Us
             </Link>
@@ -101,7 +102,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="flex items-center justify-between text-base font-semibold text-text-foreground hover:text-[#000080] transition-colors p-4 rounded-2xl hover:bg-[#000080]/5"
+                  className="flex items-center justify-between text-base font-semibold text-text-foreground hover:text-brand transition-colors p-4 rounded-2xl hover:bg-brand/5"
                 >
                   {link.name}
                   <ChevronRight className="w-4 h-4 text-brand/40" />
@@ -109,7 +110,7 @@ export default function Navbar() {
               ))}
               <Link
                 to="/partnership"
-                className="mt-4 w-full py-4 bg-[#000080] text-white rounded-2xl text-center font-bold hover:bg-[#000080]/80 transition-all shadow-xl shadow-[#000080]/20"
+                className="mt-4 w-full py-4 bg-brand text-white rounded-2xl text-center font-bold hover:bg-brand/80 transition-all shadow-xl shadow-brand/20"
               >
                 Partner With Us
               </Link>
