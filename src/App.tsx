@@ -45,13 +45,13 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/store" element={<Store />} />
+            {/* <Route path="/store" element={<Store />} /> */}
             <Route path="/school" element={<School />} />
             <Route path="/prayer-request" element={<PrayerRequest />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/new-convert" element={<NewConvert />} />
-            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<Login />} /> */}
           </Routes>
         </main>
         <Footer />

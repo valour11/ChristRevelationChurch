@@ -518,7 +518,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
               <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 md:mb-8 text-white leading-tight">
-                Become a <span className="text-black/20">Kingdom</span> Partner
+                Become a <span className="text-blue-700">Kingdom</span> Partner
               </h2>
               <p className="text-lg md:text-xl text-white/80 mb-10 md:mb-14 max-w-3xl mx-auto leading-relaxed font-medium px-4">
               Join our mission to spread God's word and impact lives globally. Your partnership makes a real difference in the lives of thousands.
