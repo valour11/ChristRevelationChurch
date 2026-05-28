@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, Users, Award, BookOpen, Star, Sparkles, GraduationCap, X, Send, Loader2, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import schoolImg from "../assets/bibleSchool.jpeg";
-import { Link } from 'react-router-dom';
 
 export default function School() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -61,7 +60,7 @@ export default function School() {
         fullName: '',
         email: '',
         phone: '',
-        level: 'Level 1',
+    level: 'Full Program (9 Months)',
         reason: ''
       });
     }, 300);
@@ -92,7 +91,7 @@ export default function School() {
               className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             >
               Christ Revelation{' '}
-              <br className="hidden sm:block" /><span className="text-brand">School Of Ministry</span><span className="block sm:inline">(CRISOM)</span>
+              <br className="hidden sm:block" /><span className="text-brand">School Of Ministry</span><span className="block sm:inline">(CRSM)</span>
             </motion.h1>
             
             <motion.p 
@@ -101,7 +100,7 @@ export default function School() {
               transition={{ delay: 0.1 }}
               className="text-base sm:text-xl text-white/60 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
             >
-              Equipping the next generation of spiritual leaders with biblical wisdom, practical skills, and apostolic insight for global impact.
+             Raising Kingdom Leaders for Global Impact
             </motion.p>
             
             <motion.button 
@@ -109,31 +108,30 @@ export default function School() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               onClick={() => setIsEnrollModalOpen(true)}
-              className="px-10 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center gap-3 mb-6 mx-auto"
+              className="px-10 py-3 bg-brand hover:bg-brand-dark text-white rounded-2xl font-bold transition-all shadow-2xl shadow-brand/40 active:scale-95 flex items-center justify-center gap-3 mb-6 mx-auto cursor-pointer"
             >
-              <Link to="#"
-                className='cursor-pointer flex w-full justify-center items-center gap-3'
-              >
-                Enroll Now <Sparkles className="w-4 h-4" />
-              </Link>
+              Enroll Now <Sparkles className="w-4 h-4" />
             </motion.button>
           </div>
         </div>
       </section>
-        {/* About School of ministry */}
+        {/* About School of Ministry */}
       <section className="py-14 px-4 sm:px-6 lg:px-24 bg-[#fafafa] relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">About</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">About <span className='text-brand'>CRISOM</span></h2>
-            <p className="text-text-muted text-lg font-medium max-w-4xl mx-auto">May the peace of the Lord be with you, beloved in Christ Jesus. You are welcome to <strong className="text-brand">Christ's Revelation School of Ministry</strong>. We are the Discipleship department of Christ's Revelation Int'l Church, the objective of this school of ministry is to raise a generation of men and women who carry an unusual passion for God, people with undivided focus on God and for his purpose in the earth. God gave this mandate to his servant, the apostle over this commission and assured him in his own word "no one who passes through your hands shall be the same". It was back in 2013 when he was alone with the Lord in the wilderness seeking his face to get his mind about his generation, in an encounter, God handed him this vocation and many other things which may be personal, still about his generation.</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">Program <span className='text-brand'>Overview</span></h2>
+            <p className="text-text-muted text-lg font-medium max-w-4xl mx-auto">
+              The Christ’s Revelation School of Ministry (CRSM) is a comprehensive, Spirit-led training institute designed to equip believers with sound doctrine, practical ministry skills, and transformational leadership capacity for effective service in the Kingdom of God.
+              This 9-month intensive program, divided into two trimesters of 4.5 months each, combines theological depth, spiritual formation, and hands-on ministry experience. It is structured to raise ministers, leaders, and kingdom influencers who will advance the Gospel locally and globally.
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { level: "Level 1", title: "Foundations of Faith", modules: ["Biblical Interpretation", "Character Development", "Dynamics of Prayer"] },
-              { level: "Level 2", title: "Ministry Essentials", modules: ["Homiletics & Preaching", "Pastoral Care", "Church Management"] },
-              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Apostolic Ministry"] }
+              { icon: <GraduationCap className="w-6 h-6" />, title: "Program Structure", items: ["Duration: 9 Months", "Two Trimesters (4.5 Months Each)", "Diploma in Ministry & Kingdom Leadership"] },
+              { icon: <BookOpen className="w-6 h-6" />, title: "Teaching Methodology", items: ["Classroom Teaching", "Practical Ministry Engagement", "Group Discussions & Case Studies", "Mentorship & Spiritual Oversight", "Field Evangelism & Outreach"] },
+              { icon: <Award className="w-6 h-6" />, title: "Assessment & Outcomes", items: ["Written Assignments & Reports", "Sermon Presentations", "Final Ministry Project", "Graduates demonstrate biblical depth, leadership capacity, and spiritual maturity"] }
             ].map((c, i) => (
               <motion.div 
                 key={i}
@@ -141,20 +139,17 @@ export default function School() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-6 md:p-12 bg-white rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
+                className="group p-6 md:p-10 bg-white rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all"
               >
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-brand font-bold text-[10px] uppercase tracking-[0.3em]">{c.level}</span>
-                  <div className="w-8 h-8 rounded-lg bg-brand/5 flex items-center justify-center text-brand">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
+                <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-brand mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  {c.icon}
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-10 text-black group-hover:text-brand transition-colors">{c.title}</h3>
-                <ul className="space-y-6">
-                  {c.modules.map((m, j) => (
-                    <li key={j} className="flex items-center gap-4 text-text-muted font-medium">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand/40" />
-                      {m}
+                <h3 className="text-xl font-display font-bold mb-6 text-black group-hover:text-brand transition-colors">{c.title}</h3>
+                <ul className="space-y-4">
+                  {c.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-3 text-text-muted font-medium">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand/40 mt-2 shrink-0" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -233,41 +228,107 @@ export default function School() {
           <div className="text-center mb-20">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-4 block">Pathway</span>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-6">Our Curriculum</h2>
-            <p className="text-text-muted text-lg font-medium max-w-2xl mx-auto">A comprehensive and structured path to spiritual leadership excellence.</p>
+            <p className="text-text-muted text-lg font-medium max-w-2xl mx-auto">A comprehensive 16-course curriculum across two trimesters, designed to raise kingdom leaders for global impact.</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              { level: "Level 1", title: "Foundations of Faith", modules: ["Biblical Interpretation", "Character Development", "Dynamics of Prayer"] },
-              { level: "Level 2", title: "Ministry Essentials", modules: ["Homiletics & Preaching", "Pastoral Care", "Church Management"] },
-              { level: "Level 3", title: "Advanced Leadership", modules: ["Strategic Planning", "Missions & Evangelism", "Apostolic Ministry"] }
-            ].map((c, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group p-6 md:p-12 bg-white rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 hover:border-brand/20 transition-all active:scale-[0.98]"
-              >
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-brand font-bold text-[10px] uppercase tracking-[0.3em]">{c.level}</span>
-                  <div className="w-8 h-8 rounded-lg bg-brand/5 flex items-center justify-center text-brand">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
+
+          {[
+            {
+              trimester: "Trimester One",
+              subtitle: "Foundations of Ministry & Kingdom Life",
+              courses: [
+                { number: 1, title: "Introduction to Service", topics: ["The call to serve in God's Kingdom", "The heart and attitude of a servant", "Servanthood as a pathway to leadership"] },
+                { number: 2, title: "Ministry Foundations", topics: ["Understanding divine calling", "Spiritual authority and submission", "Character formation in ministry"] },
+                { number: 3, title: "The Cost of True Discipleship", topics: ["Biblical requirements of discipleship", "Sacrifice, discipline, and obedience", "Endurance in ministry"] },
+                { number: 4, title: "The Ministry of Intercession", topics: ["Principles of effective prayer", "Standing in the gap", "Prophetic intercession and spiritual burden"] },
+                { number: 5, title: "Territorial Takeover", topics: ["Spiritual warfare principles", "Understanding territories and altars", "Kingdom influence in regions and communities"] },
+                { number: 6, title: "Evangelism and Discipleship", topics: ["Personal and corporate evangelism strategies", "Soul winning techniques", "Follow-up and disciple-making systems"] },
+                { number: 7, title: "The Kingdom of God", topics: ["Definition of the Kingdom", "Kingdom Culture — values, lifestyle, and conduct", "Kingdom Legal System — spiritual laws and principles", "Kingdom Citizenship — rights, responsibilities, and identity", "Kingdom Mindset — renewing the mind for dominion", "Kingdom Responsibility — stewardship and accountability", "Kingdom Financial Management Plan — biblical principles of wealth"] },
+                { number: 8, title: "Ministry Ethics", topics: ["Integrity in ministry", "Accountability and transparency", "Moral conduct and leadership responsibility"] }
+              ]
+            },
+            {
+              trimester: "Trimester Two",
+              subtitle: "Practical Ministry, Leadership & Application",
+              courses: [
+                { number: 9, title: "Pastoral Ministry", topics: ["Shepherding principles", "Counseling basics", "Hospital visitation", "Conflict resolution", "Conducting funerals and weddings"] },
+                { number: 10, title: "Christian Counseling", topics: ["Biblical counseling principles", "Family counseling", "Youth counseling", "Crisis counseling"] },
+                { number: 11, title: "Christian Doctrine", topics: ["Doctrine of God — nature and attributes", "Humanity and Sin — the fall and its implications", "Salvation — redemption, grace, and justification"] },
+                { number: 12, title: "The Message (Preaching & Communication)", topics: ["Sermon preparation", "Expository preaching", "Topical preaching", "Delivery and communication skills"] },
+                { number: 13, title: "Ministry Structure", topics: ["Vision development and strategic planning", "Team building and leadership development", "Organizational leadership"] },
+                { number: 14, title: "Apologetics", topics: ["Defending the Christian faith", "Identifying cults and false doctrines", "Addressing contemporary issues"] },
+                { number: 15, title: "Church Administration", topics: ["Church finance and budgeting", "Governance structures", "Legal and ethical considerations"] },
+                { number: 16, title: "Marketplace Ministry", topics: ["Integrating faith and work", "Business ethics", "Income generation for ministry sustainability", "Community transformation and development"] }
+              ]
+            }
+          ].map((t, ti) => (
+            <motion.div
+              key={ti}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: ti * 0.15 }}
+              className="mb-16 last:mb-0"
+            >
+              <div className="text-center mb-12">
+                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand mb-3 block">{t.trimester}</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-black">{t.subtitle}</h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                {t.courses.map((course, ci) => (
+                  <motion.div
+                    key={ci}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: ci * 0.03 }}
+                    className="group bg-white rounded-2xl p-5 card-shadow border border-brand/5 hover:border-brand/20 transition-all"
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[10px] font-bold text-brand bg-brand/5 px-2 py-1 rounded-md">Course {course.number}</span>
+                    </div>
+                    <h4 className="text-base font-display font-bold text-black mb-3 group-hover:text-brand transition-colors">{course.title}</h4>
+                    <ul className="space-y-1.5">
+                      {course.topics.map((topic, ji) => (
+                        <li key={ji} className="flex items-start gap-2 text-xs text-text-muted font-medium">
+                          <div className="w-1 h-1 rounded-full bg-brand/30 mt-1.5 shrink-0" />
+                          <span>{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Program Outcomes */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20 p-8 md:p-14 bg-white rounded-[32px] md:rounded-[48px] card-shadow border border-brand/5 text-center max-w-4xl mx-auto"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-brand mx-auto mb-6">
+              <Star className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-black mb-6">Program Outcomes</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
+              {[
+                "Demonstrate strong biblical and doctrinal understanding",
+                "Operate effectively in ministry and leadership roles",
+                "Preach and teach with clarity and power",
+                "Engage in community and marketplace transformation",
+                "Exhibit integrity, discipline, and spiritual maturity",
+                "Advance the Kingdom of God with wisdom and authority"
+              ].map((outcome, i) => (
+                <div key={i} className="flex items-start gap-3 text-text-muted font-medium text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-brand mt-0.5 shrink-0" />
+                  <span>{outcome}</span>
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-10 text-black group-hover:text-brand transition-colors">{c.title}</h3>
-                <ul className="space-y-6">
-                  {c.modules.map((m, j) => (
-                    <li key={j} className="flex items-center gap-4 text-text-muted font-medium">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand/40" />
-                      {m}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
       {/* Enrollment Modal */}
@@ -349,17 +410,17 @@ export default function School() {
                       </div>
                       <div className="space-y-2">
                         <label className="text-[10px] font-bold text-black uppercase tracking-widest ml-1">Enrollment Level</label>
-                        <select 
-                          name="level"
-                          value={formData.level}
-                          onChange={handleChange}
-                          disabled={isSubmitting}
-                          className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black appearance-none cursor-pointer disabled:opacity-50"
-                        >
-                          <option>Level 1 - Foundations</option>
-                          <option>Level 2 - Essentials</option>
-                          <option>Level 3 - Advanced</option>
-                        </select>
+                          <select 
+                            name="level"
+                            value={formData.level}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                            className="w-full px-6 py-4 rounded-xl bg-[#fafafa] border border-brand/5 focus:bg-white focus:ring-2 focus:ring-brand focus:border-transparent focus:outline-none transition-all font-medium text-black appearance-none cursor-pointer disabled:opacity-50"
+                          >
+                            <option>Full Program (9 Months)</option>
+                            <option>Trimester 1 — Foundations of Ministry</option>
+                            <option>Trimester 2 — Practical Ministry</option>
+                          </select>
                       </div>
                     </div>
 
