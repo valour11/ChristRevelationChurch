@@ -91,7 +91,7 @@ export default function School() {
               className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             >
               Christ Revelation{' '}
-              <br className="hidden sm:block" /><span className="text-brand">School Of Ministry</span><span className="block sm:inline">(CRSM)</span>
+              <br className="hidden sm:block" /><span className="text-brand">School Of Ministry</span><span className="block sm:inline">(CRISOM)</span>
             </motion.h1>
             
             <motion.p 
