@@ -334,7 +334,7 @@ export default function School() {
       {/* Enrollment Modal */}
       <AnimatePresence>
         {isEnrollModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 sm:p-6 overflow-y-auto">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -347,7 +347,7 @@ export default function School() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-[40px] overflow-hidden shadow-2xl"
+              className="relative w-full max-w-2xl bg-white rounded-[40px] overflow-hidden shadow-2xl my-8 sm:my-0"
             >
               <button 
                 onClick={closeModal}
