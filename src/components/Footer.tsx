@@ -56,7 +56,6 @@ export default function Footer() {
               <li><Link to="/store" className="hover:text-brand transition-colors text-sm">Store & Media</Link></li>
               <li><Link to="/prayer-request" className="hover:text-brand transition-colors text-sm">Prayer Command</Link></li>
               <li><Link to="/contact" className="hover:text-brand transition-colors text-sm">Get in Touch</Link></li>
-              {/* <li><Link to="/login" className="hover:text-brand transition-colors text-sm">Admin Portal</Link></li> */}
             </ul>
           </div>
 
@@ -70,7 +69,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] uppercase font-bold text-brand tracking-widest mb-1">Email</span>
-                  <a href="mailto:contact@bantar.org" className="text-white hover:text-brand transition-colors text-sm">contact@bantar.org</a>
+                  <span className="text-white hover:text-brand transition-colors text-sm">contact@christsrevelationinternationalchurch.org</span>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -79,7 +78,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] uppercase font-bold text-brand tracking-widest mb-1">Phone</span>
-                  <a href="tel:+237673587463" className="text-white hover:text-brand transition-colors text-sm">+237 6 73 58 74 63</a>
+                  <span className="text-white hover:text-brand transition-colors text-sm">+237 6 73 58 74 63</span>
                 </div>
               </li>
               <li className="flex items-start gap-4">

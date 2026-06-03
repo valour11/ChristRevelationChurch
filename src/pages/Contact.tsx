@@ -118,8 +118,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="text-xl font-display font-bold text-black mb-2 group-hover:text-brand transition-colors">Digital Correspondence</h4>
-                        <p className="text-text-muted font-medium leading-relaxed">contact@bantar.org</p>
-                        <p className="text-text-muted font-medium leading-relaxed">ministry@bantar.org</p>
+                        <p className="text-text-muted font-medium leading-relaxed">contact@christsrevelationinternationalchurch.org</p>
                       </div>
                     </div>
 
@@ -130,7 +129,6 @@ export default function Contact() {
                       <div>
                         <h4 className="text-xl font-display font-bold text-black mb-2 group-hover:text-brand transition-colors">Direct Lines</h4>
                         <p className="text-text-muted font-medium leading-relaxed">+237 6 73 58 74 63</p>
-                        <p className="text-text-muted font-medium leading-relaxed">+237 6 99 00 11 22</p>
                       </div>
                     </div>
 
